@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="noticeMapper">
+
+	<resultMap id="resultNotice" type="Notice">
+		<id property="notice_no" column="notice_no" />
+		<result property="notice_title" column="notice_title" />
+		<result property="notice_content" column="notice_content" />
+		<result property="notice_date" column="notice_date" />
+		<result property="notice_count" column="notice_count" />
+		<result property="notice_del" column="notice_del" />
+		<result property="del_date" column="del_date" />
+		
+	</resultMap>
+
+	<select id="selectList" parameterType="Notice"  resultMap="resultNotice">
+		<![CDATA[select * from notice order by notice_no desc]]>
+	</select>
+	
+	<!-- <select id="selectNotice" parameterType="int"  resultMap="resultNotice">
+		<![CDATA[select * from notice where noticeno = ${noticeNo}]]>
+	</select>
+	
+	<insert id="insertNotice" parameterType="Notice">
+		<![CDATA[insert into notice values ((select max(noticeno) from notice) + 1, ${noticeTitle}, default, ${noticeWriter}, ${noticeContent}, ${originalFilePath}, ${renameFilePath})]]>
+	</insert>
+	
+	<update id="updateNotice" parameterType="Notice">
+			<![CDATA[update notice set noticetitle = ${noticeTitle}, noticecontent = ${noticeContent}
+			<if test="originalFilePath != null">
+			, original_filepath = ${originalFilePath}, rename_filepath = ${renameFilePath}
+			</if>
+			 where noticeno = ${noticeNo}]]>
+	</update>
+	
+	<delete id="deleteNotice" parameterType="int">
+		<![CDATA[delete from notice where noticeno = ${noticeNo}]]>
+	</delete> -->
+</mapper>

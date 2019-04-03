@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="QNAMapper">
+
+	<resultMap id="resultQNA" type="QNA">
+		<id property="qna_no" column="qna_no" />
+		<result property="upper_qna_no" column="upper_qna_no" />
+		<result property="qna_title" column="qna_title" />
+		<result property="qna_content" column="qna_content" />
+		<result property="qna_date" column="qna_date" />
+		<result property="qna_level" column="qna_level" />
+		<result property="user_id" column="user_id" />
+		<result property="qna_del" column="qna_del" />
+		<result property="del_date" column="del_date" />
+	</resultMap>
+	
+	<select id="selectList" parameterType="QNA"  resultMap="resultQNA">
+		<![CDATA[select * from qna order by qna_no desc]]>
+	</select>
+	
+	<!-- <select id="selectNotice" parameterType="int"  resultMap="resultNotice">
+		<![CDATA[select * from notice where noticeno = ${noticeNo}]]>
+	</select>
+	
+	<select id="selectSearchTitle" parameterType="String"  resultMap="resultNotice">
+		<![CDATA[select * from notice where noticetitle like ${noticeTitle} order by noticeno desc]]>
+	</select>
+
+	<select id="selectSearchDate" parameterType="notice.model.vo.SearchDate"  resultMap="resultNotice">
+		<![CDATA[select * from notice where noticedate between #{begin} and #{end} order by noticeno desc]]>
+	</select>
+	
+	<select id="selectSearchWriter" parameterType="String"  resultMap="resultNotice">
+		<![CDATA[select * from notice where noticewriter like ${noticeWriter} order by noticeno desc]]>
+	</select>
+	
+	<insert id="insertNotice" parameterType="Notice">
+		<![CDATA[insert into notice values ((select max(noticeno) from notice) + 1, ${noticeTitle}, default, ${noticeWriter}, ${noticeContent}, ${originalFilePath}, ${renameFilePath})]]>
+	</insert>
+	
+	<update id="updateNotice" parameterType="Notice">
+			<![CDATA[update notice set noticetitle = ${noticeTitle}, noticecontent = ${noticeContent}
+			<if test="originalFilePath != null">
+			, original_filepath = ${originalFilePath}, rename_filepath = ${renameFilePath}
+			</if>
+			 where noticeno = ${noticeNo}]]>
+	</update>
+	
+	<delete id="deleteNotice" parameterType="int">
+		<![CDATA[delete from notice where noticeno = ${noticeNo}]]>
+	</delete> -->
+</mapper>
