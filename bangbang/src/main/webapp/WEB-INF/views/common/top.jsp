@@ -19,6 +19,7 @@
 					<a href="javascript:void(0);" class="btnLogin"><span>로그인</span></a>
 					<a href="javascript:void(0);" class="btnJoin"><span>회원가입</span></a>
 				</c:if>
+				</div>
 		        <ul class="global_top_menu">
 					<li class="navTab navTab_1"><a href="">MAP</a></li>
 					<li class="navTab navTab_2"><a href="">BANG</a></li>
