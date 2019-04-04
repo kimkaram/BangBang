@@ -1,14 +1,20 @@
 package com.kh.bangbang.company.model.service;
 
-import com.kh.bangbang.company.model.vo.Company;
-import com.kh.bangbang.member.model.vo.Member;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import com.kh.bangbang.company.model.dao.CompanyDao;
+import com.kh.bangbang.company.model.vo.Company;
+
+@Service("companyService")
 public class CompanyServiceImpl implements CompanyService{
 
+	@Autowired
+	private CompanyDao companyDao;
+	
 	@Override
 	public Company loginCheck(String memberId) {
-		// TODO Auto-generated method stub
-		return null;
+		return companyDao.loginCheck(memberId);
 	}
 
 }
