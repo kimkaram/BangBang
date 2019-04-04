@@ -14,10 +14,10 @@
 				<c:if test="${!empty sessionScope.loginMember }">
 					<a href="logout.do" ><span>로그아웃</span></a>
 					<c:if test="${ sessionScope.loginMember.type eq '개인' }" >
-		    		<a href="/member/info" class="btnLogin btnMyinfo"><span>내 계정</span></a>
+		    		<a href="userMyPage.do" class="btnLogin btnMyinfo"><span>내 계정</span></a>
 		    		</c:if>
 		    		<c:if test="${ sessionScope.loginMember.type ne '개인' }" >
-		    		<a href="/member/info" class="btnLogin btnMyinfo"><span>계정 관리</span></a>
+		    		<a href="companyMyPage.do" class="btnLogin btnMyinfo"><span>계정 관리</span></a>
 		    		</c:if>
 		    		
 		    	</c:if>
@@ -37,7 +37,7 @@
 		    </div>
 		</div>
 		<script type="text/javascript">
-			$(function(){
+/* 			$(function(){
 				
 				// 로그인 팝업
 				$("a.btnLogin").fancybox({
@@ -62,7 +62,7 @@
 					}
 				});
 				
-			});
+			}); */
 		</script>
 	</body>
 </html>
