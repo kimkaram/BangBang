@@ -26,7 +26,7 @@ public class BangController {
 	
 	@RequestMapping("loption.do")
 	public String liveOptionList() {
-		
+		return "bang/bangList";
 	}
 
 }
