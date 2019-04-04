@@ -30,13 +30,6 @@
 						<div class="myInfoCon">
 							<table>
 								<tr>
-									<th>프로필 사진</th>
-									<td>
-										<img src="../../resources/images/img-profile-user.png" class="photo1" alt="사진변경" />
-										<p><input type="file" value="이미지 업로드" /></p>
-									</td>
-								</tr>
-								<tr>
 									<th>아이디</th>
 									<td>
 										<input type="text" name="id" style="width:285px;" />
