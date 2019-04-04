@@ -12,11 +12,17 @@
 				<h1 class="logo"><a href="">BANG GRAE</a></h1>
 				<div class="myNavBox">
 				<c:if test="${!empty sessionScope.loginMember }">
-					<a href="logout.do" class="btnLogin btnLogout"><span>로그아웃</span></a>
+					<a href="logout.do" ><span>로그아웃</span></a>
+					<c:if test="${ sessionScope.loginMember.type eq '개인' }" >
 		    		<a href="/member/info" class="btnLogin btnMyinfo"><span>내 계정</span></a>
+		    		</c:if>
+		    		<c:if test="${ sessionScope.loginMember.type ne '개인' }" >
+		    		<a href="/member/info" class="btnLogin btnMyinfo"><span>계정 관리</span></a>
+		    		</c:if>
+		    		
 		    	</c:if>
 		    	<c:if test="${empty sessionScope.loginMember }">
-					<a href="javascript:void(0);" class="btnLogin"><span>로그인</span></a>
+					<a href="loginpage.do" ><span>로그인</span></a>
 					<a href="javascript:void(0);" class="btnJoin"><span>회원가입</span></a>
 				</c:if>
 				</div>
