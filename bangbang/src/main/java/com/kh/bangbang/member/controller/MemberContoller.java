@@ -1,5 +1,6 @@
 package com.kh.bangbang.member.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -11,14 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.support.SessionStatus;
 
-import com.kh.bangbang.company.model.service.CompanyService;
-import com.kh.bangbang.company.model.service.CompanyServiceImpl;
-import com.kh.bangbang.company.model.vo.Company;
 import com.kh.bangbang.member.model.service.MemberService;
 import com.kh.bangbang.member.model.vo.Member;
-import com.kh.bangbang.user.model.service.UserService;
-import com.kh.bangbang.user.model.service.UserServiceImpl;
-import com.kh.bangbang.user.model.vo.User;
 
 
 
@@ -51,6 +46,11 @@ public class MemberContoller {
 		
 		return "member/login";
 	}
+	@RequestMapping("passfindpage.do")
+	public String passFindPage() {
+		
+		return "member/memberPassFind";
+	}
 	
 	@RequestMapping(value="login.do", method=RequestMethod.POST)
 	public String loginCheck(Member member, HttpSession session, SessionStatus status) {
@@ -58,30 +58,25 @@ public class MemberContoller {
 		
 		if(loginMember !=null) {
 			//로그인 성공시 
-			if(loginMember.getType().equals("개인")) {
-				//개인 회원
-				UserService userService = new UserServiceImpl();
-				User loginUser = userService.loginCheck(member.getId());
-				
-				session.setAttribute("loginUser", loginUser);
-				status.setComplete(); //요청 성공
-			}else {
-				//업체 회원
-				CompanyService companyService = new CompanyServiceImpl();
-				Company loginCompany = companyService.loginCheck(member.getId());
-				
-				session.setAttribute("loginCompany", loginCompany);
-				status.setComplete(); //요청 성공
-			}
+			session.setAttribute("loginMember", loginMember);
+			status.setComplete(); //요청 성공
 			
 			return "home";
 		}else {
 			//로그인 실패시
 			return "common/error";
 		}
-		
-		
 	}
+	
+	@RequestMapping("logout.do")
+	   public String logoutMethod(HttpServletRequest request) {
+		   HttpSession session = request.getSession(false);
+		   if(session!=null) {
+			   session.invalidate();
+		   }
+		   return "home";
+	   }
+	
 	
 	
 }
