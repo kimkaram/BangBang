@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="userMapper">
+
+<!-- 테이블의 컬럼명과 vo 클래스의 필드명이 같으면 
+	ResultMap 자동 처리됨. 별도 작성 필요 없음 -->
+	
+	<select id="selectLogin" parameterType="Member" resultType="Member" >
+	<![CDATA[
+		select * 
+		from user1
+		where user_id = #{ id } 
+		
+	]]>
+	<!-- and userpwd = #{ userpwd } -->
+	</select>
+</mapper>

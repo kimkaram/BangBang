@@ -11,8 +11,7 @@
 		]]>
 	</select>
 	
-	<!-- <select id="selectMember" parameterType="string" >
-	
+<!-- 	<select id="selectMember" parameterType="string" >
 		select * from company 
 		where com_id = #{  }
 	</select>
@@ -39,8 +38,8 @@
 		brokers_address = #{  }, com_phone = #{  }, 
 		com_content = #{  }, com_email = #{  } 
 		where com_id = #{  }
-	</update>
-	 -->
+	</update> -->
+	
 
 </mapper>
 
