@@ -22,7 +22,7 @@
 				</div>
 		        <ul class="global_top_menu">
 					<li class="navTab navTab_1"><a href="">MAP</a></li>
-					<li class="navTab navTab_2"><a href="bangList.do">BANG</a></li>
+					<li class="navTab navTab_2"><a href="blist.do">BANG</a></li>
 					<li class="navTab navTab_5"><a href="">ZZIM</a></li>
 					<li class="navTab navTab_6"><a href="nlist.do">NOTICE</a></li>
 					<li class="navTab navTab_6"><a href="qnalist.do">QNA</a></li>
