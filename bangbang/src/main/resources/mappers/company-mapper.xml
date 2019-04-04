@@ -11,7 +11,7 @@
 		]]>
 	</select>
 	
-	<select id="selectMember" parameterType="string" >
+<!-- 	<select id="selectMember" parameterType="string" >
 		select * from company 
 		where com_id = #{  }
 	</select>
@@ -25,7 +25,7 @@
 		values(#{  }, #{  }, #{  }, 
 			#{  }, #{  }, #{  }, #{  }, #{  }, #{  })
 	</insert>
-	<!-- todo : insert 시 member 도 필요 -->
+	todo : insert 시 member 도 필요
 	
 	<delete id="deleteCompany" parameterType="String">
 		delete from company where com_id = #{  }
@@ -38,7 +38,7 @@
 		brokers_address = #{  }, com_phone = #{  }, 
 		com_content = #{  }, com_email = #{  } 
 		where com_id = #{  }
-	</update>
+	</update> -->
 	
 
 </mapper>

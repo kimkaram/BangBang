@@ -11,13 +11,13 @@ import com.kh.bangbang.company.model.vo.Company;
 public class CompanyDao {
 	
 	@Autowired
-	private SqlSessionTemplate mbSession;
+	private SqlSessionTemplate mybatisSession;
 	
 	@Autowired
-	private BCryptPasswordEncoder bpEncoder;
+	private BCryptPasswordEncoder bcryptPasswordEncoder;
 
 	public Company loginCheck(String memberId) {
-		Company loginCompany = mbSession.selectOne("companyMapper.selectLogin", memberId);
+		Company loginCompany = mybatisSession.selectOne("companyMapper.selectLogin", memberId);
 		return loginCompany;
 	}
 
