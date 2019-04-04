@@ -46,10 +46,10 @@
 	                        <li class="comuLit">
 	                            <a href="javascript:void(0);" class="titBox">
 	                                <span class="arrow"></span>
-	                                <c:if test="">
+	                                <c:if test="${!empty qna.qna_answer }">
 	                                <span class="tit"><span class="titLabel a-on">답변완료</span>${qna.qna_title }</span>
 	                                </c:if>
-	                                <c:if test="">
+	                                <c:if test="${empty qna.qna_answer }">
 	                                <span class="tit"><span class="titLabel a-on">미답변</span>${qna.qna_title }</span>
 	                                </c:if>
 	                                <span class="date">${qna.qna_date }</span>
@@ -64,10 +64,16 @@
 	                                        </div>
 	                                    </div>
 	                                </div>
+	                                <c:if test="${!empty qna.qna_answer }">
+	                                <div class="txtBox qnaBox aBox">
+	                                	${qna.qna_answer }
+	                                </div>
+	                                </c:if>
 	                              </div>
+	                              </li>
 	                             </c:forEach>   
-	                        </li>
-	                        <li class="comuLit">
+	                        
+	                       <!--  <li class="comuLit">
 	                            <a href="javascript:void(0);" class="titBox">
 	                                <span class="arrow"></span>
 	                                <span class="tit"><span class="titLabel a-on">미답변</span>Q&A 라구요</span>
@@ -86,7 +92,7 @@
 	                                    </div>
 	                                </div>
 	                            </div>
-	                        </li>
+	                        </li> -->
 	                    </ul>
 	                </div>
 	                <div class="pagination">

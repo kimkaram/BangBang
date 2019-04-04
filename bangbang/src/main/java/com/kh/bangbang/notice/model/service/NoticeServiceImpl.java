@@ -20,16 +20,19 @@ public class NoticeServiceImpl implements NoticeService{
 
 	@Override
 	public int insertNotice(Notice notice) {
+		System.out.println("insertservicenotice : " + notice);
 		return noticeDao.insertNotice(notice);
 	}
 
 	@Override
 	public int deleteNotice(int notice_no) {
+		System.out.println("servicenotice_no : " + notice_no);
 		return noticeDao.deleteNotice(notice_no);
 	}
 
 	@Override
 	public int updateNotice(Notice notice) {
+		System.out.println("servicenotice : " + notice);
 		return noticeDao.updateNotice(notice);
 	}
 

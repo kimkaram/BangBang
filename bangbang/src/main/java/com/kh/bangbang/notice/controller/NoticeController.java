@@ -35,19 +35,25 @@ public class NoticeController {
 	@RequestMapping(value="ninsert.do", method=RequestMethod.POST)
 	public String insertNoticeMethod(Notice notice) {
 		int result = noticeService.insertNotice(notice);
+		System.out.println("insertresult : " + result);
+		System.out.println("insertnotice : " + notice);
 		return "redirect:/nlist.do";
 	}
 	
 	@RequestMapping(value="nupdate.do", method=RequestMethod.GET)
 	public String updateNoticeMethod(Notice notice) {
 		int result = noticeService.updateNotice(notice);
-		return "notice/noticeList";
+		System.out.println("updateresult : " + result);
+		System.out.println("updatenotice : " + notice);
+		return "redirect:/nlist.do";
 	}
 	
 	@RequestMapping(value="ndelete.do", method=RequestMethod.GET)
 	public String deleteNoticeMethod(int notice_no) {
 		int result = noticeService.deleteNotice(notice_no);
-		return "home";
+		System.out.println("deleteresult : " + result);
+		System.out.println("deletenotice_no : " + notice_no);
+		return "redirect:/nlist.do";
 	}
 	
 }

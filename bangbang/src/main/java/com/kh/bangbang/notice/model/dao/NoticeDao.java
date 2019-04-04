@@ -18,14 +18,17 @@ public class NoticeDao {
 	}
 
 	public int insertNotice(Notice notice) {
+		System.out.println("insertdaonotice : " + notice);
 		return session.insert("noticeMapper.insertNotice", notice);
 	}
 
 	public int deleteNotice(int notice_no) {
+		System.out.println("daonotice_no : " + notice_no);
 		return session.delete("noticeMapper.deleteNotice", notice_no);
 	}
 
 	public int updateNotice(Notice notice) {
+		System.out.println("daonotice : " + notice);
 		return session.update("noticeMapper.updateNotice", notice);
 	}
 
