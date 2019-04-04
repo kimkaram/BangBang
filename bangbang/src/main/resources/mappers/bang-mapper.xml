@@ -31,11 +31,11 @@
 
 
 
-	<select id="bangList" resultMap="resultBang">
-		<![CDATA[
-			select *
-			from porperty
-		]]>
+	<select id="bangList" parameterType="Bang" resultType="Bang">
+	<![CDATA[
+		select *
+		from property order by pro_no desc
+	]]>
 	</select>
 
 
