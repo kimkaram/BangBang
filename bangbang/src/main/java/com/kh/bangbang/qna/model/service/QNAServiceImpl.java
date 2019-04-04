@@ -15,7 +15,7 @@ public class QNAServiceImpl implements QNAService{
 	private QNADao qnaDao; //ÀÚµ¿°´Ã¼»ý¼ºÇØÁÜ.
 
 	@Override
-	public List<QNA> selectQNAList(HashMap<String, Object> map) {
-		return qnaDao.selectQNAList(map);
+	public List<QNA> selectQNAList() {
+		return qnaDao.selectQNAList();
 	}
 }

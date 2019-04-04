@@ -36,23 +36,27 @@
 				<div class="comuWrap qnaWrap">
 					<div class="comuTitBox">
 						<strong>Q&A</strong>
-						<a href="javascript:void(0);" class="btnWrite"><span>질문 작성하기</span></a>
+						<a href="javascript:void(0);" onclick="javascript:location.href='qnawrite.do';" class="btnWrite"><span>질문 작성하기</span></a>
 						<div class="clr"></div>
 					</div>
 	                <div class="writeArea" style="display:none;"></div>
 	                <div class="comuLitWrap qnaLitWrap">
 	                    <ul>
+	                    	<c:forEach items="${qnaList }" var="qna">
 	                        <li class="comuLit">
 	                            <a href="javascript:void(0);" class="titBox">
 	                                <span class="arrow"></span>
-	                                <span class="tit"><span class="titLabel a-on">답변완료</span>Q&A 라구요</span>
-	                                <span class="date">2019-03-28</span>
+	                                <c:if test="">
+	                                <span class="tit"><span class="titLabel a-on">답변완료</span>${qna.qna_title }</span>
+	                                </c:if>
+	                                <c:if test="">
+	                                <span class="tit"><span class="titLabel a-on">미답변</span>${qna.qna_title }</span>
+	                                </c:if>
+	                                <span class="date">${qna.qna_date }</span>
 	                            </a>
 	                            <div class="contentBox" style="display:none;">
 	                                <div class="txtBox qnaBox qBox">
-	                                	Q&A인데요<br>
-	                                	이건 질문이구요.<br>
-	                                	이렇게 작성하시면 될 것 같아여.
+	                                	${qna.qna_content }
 	                                    <div class="comuModifyWrap">
 	                                        <div class="btnCtrl">
 	                                            <a href="javascript:void(0);" class="btnModify"><span>수정</span></a>
@@ -60,12 +64,8 @@
 	                                        </div>
 	                                    </div>
 	                                </div>
-	                                <div class="txtBox qnaBox aBox">
-	                                	Q&A인데요<br>
-	                                	이건 답변이구요.<br>
-	                                	이렇게 작성하시면 될 것 같아여.
-	                                </div>
-	                            </div>
+	                              </div>
+	                             </c:forEach>   
 	                        </li>
 	                        <li class="comuLit">
 	                            <a href="javascript:void(0);" class="titBox">
@@ -84,31 +84,6 @@
 	                                            <a href="javascript:void(0);" class="btnDelete"><span>삭제</span></a>
 	                                        </div>
 	                                    </div>
-	                                </div>
-	                            </div>
-	                        </li>
-	                        <li class="comuLit">
-	                            <a href="javascript:void(0);" class="titBox">
-	                                <span class="arrow"></span>
-	                                <span class="tit"><span class="titLabel a-on">답변완료</span>Q&A 라구요</span>
-	                                <span class="date">2019-03-28</span>
-	                            </a>
-	                            <div class="contentBox" style="display:none;">
-	                                <div class="txtBox qnaBox qBox">
-	                                	Q&A인데요<br>
-	                                	이건 질문이구요.<br>
-	                                	이렇게 작성하시면 될 것 같아여.
-	                                    <div class="comuModifyWrap">
-	                                        <div class="btnCtrl">
-	                                            <a href="javascript:void(0);" class="btnModify"><span>수정</span></a>
-	                                            <a href="javascript:void(0);" class="btnDelete"><span>삭제</span></a>
-	                                        </div>
-	                                    </div>
-	                                </div>
-	                                <div class="txtBox qnaBox aBox">
-	                                	Q&A인데요<br>
-	                                	이건 답변이구요.<br>
-	                                	이렇게 작성하시면 될 것 같아여.
 	                                </div>
 	                            </div>
 	                        </li>

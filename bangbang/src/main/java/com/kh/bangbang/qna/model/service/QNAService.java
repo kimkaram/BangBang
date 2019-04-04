@@ -6,5 +6,5 @@ import java.util.List;
 import com.kh.bangbang.qna.model.vo.QNA;
 
 public interface QNAService {
-	List<QNA> selectQNAList(HashMap<String, Object> map);
+	List<QNA> selectQNAList();
 }
