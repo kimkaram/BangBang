@@ -13,11 +13,20 @@ public class NoticeDao {
 	@Autowired
 	private SqlSessionTemplate session; //DB ø¨∞·«‘
 	
-	public List<Notice> selectNoticeList(HashMap<String, Object> map) {
-		return session.selectList("noticeMapper.selectList", map);
+	public List<Notice> selectNoticeList() {
+		return session.selectList("noticeMapper.selectList");
 	}
 
-	/*public int listCount() {
-		return session.selectOne("noticeMapper.listCount");
-	}*/
+	public int insertNotice(Notice notice) {
+		return session.insert("noticeMapper.insertNotice", notice);
+	}
+
+	public int deleteNotice(int notice_no) {
+		return session.delete("noticeMapper.deleteNotice", notice_no);
+	}
+
+	public int updateNotice(Notice notice) {
+		return session.update("noticeMapper.updateNotice", notice);
+	}
+
 }

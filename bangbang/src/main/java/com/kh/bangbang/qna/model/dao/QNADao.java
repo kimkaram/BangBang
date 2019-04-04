@@ -15,8 +15,8 @@ public class QNADao {
 	@Autowired
 	private SqlSessionTemplate session; //DB ø¨∞·«‘
 	
-	public List<QNA> selectQNAList(HashMap<String, Object> map){
-		return session.selectList("QNAMapper.selectList", map);
+	public List<QNA> selectQNAList(){
+		return session.selectList("QNAMapper.selectList");
 	}
 
 }

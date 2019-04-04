@@ -36,72 +36,32 @@
 				<div class="comuWrap noticeWrap">
 					<div class="comuTitBox">
 						<strong>공지사항</strong>
-						<a href="javascript:void(0);" class="btnWrite"><span>글쓰기</span></a>
+						<a href="javascript:void(0);" onclick="javascript:location.href='nwrite.do';" class="btnWrite"><span>글쓰기</span></a>
 						<div class="clr"></div>
 					</div>
 	                <div class="writeArea" style="display:none;"></div>
 	                <div class="comuLitWrap noticeLitWrap">
 	                    <ul>
+	                    	<c:forEach items="${noticeList }" var="notice">
 	                        <li class="comuLit">
 	                            <a href="javascript:void(0);" class="titBox">
 	                                <span class="arrow"></span>
-	                                <span class="tit">공지사항이라구요</span>
-	                                <span class="date">2019-03-28</span>
+	                                <span class="tit">${notice.notice_title }</span>
+	                                <span class="date">${notice.notice_date }</span>
 	                            </a>
 	                            <div class="contentBox" style="display:none;">
 	                                <div class="txtBox">
-	                                	공지사항인데요<br>
-	                                	공지사항은 이렇게 나오구요.<br>
-	                                	이렇게 작성하시면 될 것 같아여.
+	                                	${notice.notice_content }
 	                                    <div class="comuModifyWrap">
 	                                        <div class="btnCtrl">
-	                                            <a href="javascript:void(0);" class="btnModify"><span>수정</span></a>
-	                                            <a href="javascript:void(0);" class="btnDelete"><span>삭제</span></a>
+	                                            <a href="javascript:void(0);" onclick="javascript:location.href='nupdate.do';" class="btnModify"><span>수정</span></a>
+	                                            <a href="javascript:void(0);" onclick="javascript:location.href='ndelete.do';" class="btnDelete"><span>삭제</span></a>
 	                                        </div>
 	                                    </div>
 	                                </div>
 	                            </div>
 	                        </li>
-	                        <li class="comuLit">
-	                            <a href="javascript:void(0);" class="titBox">
-	                                <span class="arrow"></span>
-	                                <span class="tit">공지사항이라구요</span>
-	                                <span class="date">2019-03-28</span>
-	                            </a>
-	                            <div class="contentBox" style="display:none;">
-	                                <div class="txtBox">
-	                                	공지사항인데요<br>
-	                                	공지사항은 이렇게 나오구요.<br>
-	                                	이렇게 작성하시면 될 것 같아여.
-	                                    <div class="comuModifyWrap">
-	                                        <div class="btnCtrl">
-	                                            <a href="javascript:void(0);" class="btnModify"><span>수정</span></a>
-	                                            <a href="javascript:void(0);" class="btnDelete"><span>삭제</span></a>
-	                                        </div>
-	                                    </div>
-	                                </div>
-	                            </div>
-	                        </li>
-	                        <li class="comuLit">
-	                            <a href="javascript:void(0);" class="titBox">
-	                                <span class="arrow"></span>
-	                                <span class="tit">공지사항이라구요</span>
-	                                <span class="date">2019-03-28</span>
-	                            </a>
-	                            <div class="contentBox" style="display:none;">
-	                                <div class="txtBox">
-	                                	공지사항인데요<br>
-	                                	공지사항은 이렇게 나오구요.<br>
-	                                	이렇게 작성하시면 될 것 같아여.
-	                                    <div class="comuModifyWrap">
-	                                        <div class="btnCtrl">
-	                                            <a href="javascript:void(0);" class="btnModify"><span>수정</span></a>
-	                                            <a href="javascript:void(0);" class="btnDelete"><span>삭제</span></a>
-	                                        </div>
-	                                    </div>
-	                                </div>
-	                            </div>
-	                        </li>
+	                        </c:forEach>
 	                    </ul>
 	                </div>
 	                <div class="pagination">

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <!DOCTYPE html>
 <html>
 	<head>
@@ -10,14 +11,18 @@
 		    <div class="global_top">
 				<h1 class="logo"><a href="">BANG GRAE</a></h1>
 				<div class="myNavBox">
-					<!-- <a href="javascript:void(0);" onclick="$.inc.header.onLogout();" class="btnLogin btnLogout"><span>로그아웃</span></a>
-		    		<a href="/member/info" class="btnLogin btnMyinfo"><span>내 계정</span></a> -->
+				<c:if test="${!empty sessionScope.loginMember }">
+					<a href="logout.do" class="btnLogin btnLogout"><span>로그아웃</span></a>
+		    		<a href="/member/info" class="btnLogin btnMyinfo"><span>내 계정</span></a>
+		    	</c:if>
+		    	<c:if test="${empty sessionScope.loginMember }">
 					<a href="javascript:void(0);" class="btnLogin"><span>로그인</span></a>
 					<a href="javascript:void(0);" class="btnJoin"><span>회원가입</span></a>
+				</c:if>
 				</div>
 		        <ul class="global_top_menu">
 					<li class="navTab navTab_1"><a href="">MAP</a></li>
-					<li class="navTab navTab_2"><a href="">BANG</a></li>
+					<li class="navTab navTab_2"><a href="blist.do">BANG</a></li>
 					<li class="navTab navTab_5"><a href="">ZZIM</a></li>
 					<li class="navTab navTab_6"><a href="nlist.do">NOTICE</a></li>
 					<li class="navTab navTab_6"><a href="qnalist.do">QNA</a></li>

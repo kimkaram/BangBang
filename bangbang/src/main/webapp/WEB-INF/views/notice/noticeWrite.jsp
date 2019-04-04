@@ -5,10 +5,10 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<c:import url="/views/common/header.jsp"/>
+		<c:import url="../common/header.jsp"/>
 	</head>
 	<body>
-		<c:import url="/views/common/top.jsp"/>
+		<c:import url="../common/top.jsp"/>
 		<div id="notice-index">
 			<div class="comuArea noticeArea">
 				<div class="comuWrap noticeWrap">
@@ -16,13 +16,13 @@
 						<strong>공지사항 글쓰기</strong>
 						<div class="clr"></div>
 					</div>
-					<form name="writeForm" id="writeForm" method="post" action="">
+					<form name="writeForm" id="writeForm" method="post" action="ninsert.do">
 				        <div class="comuWriteWrap">
 							<div class="writeTit">
 								<div class="titCon">
 									<label>제목</label>
 									<div class="titBox">
-										<input type="text" name="title">
+										<input type="text" name="notice_title">
 									</div>
 								</div>
 								<ul>
@@ -38,16 +38,16 @@
 										<div class="titCon">
 											<label>작성일</label>	
 											<div class="titBox">
-												<input type="text" name="date" value="2019.03.01" readonly />
+												<input type="text" name="notice_date" value="2019-03-01" readonly />
 											</div>
 										</div>
 									</li>
 								</ul>
 							</div>
-				            <textarea name="text"></textarea>
+				            <textarea name="notice_content"></textarea>
 				            <div class="btnCtrl">
-				                <a href="javascript:void(0);" class="btnOk"><span>확인</span></a>
-				                <a href="javascript:void(0);" class="btnCancel"><span>취소</span></a>
+				                <a href="javascript:void(0);" class="btnOk"><input type="submit" value="확인"></a>
+				                <a href="javascript:void(0);" class="btnCancel"><input type="reset" value="취소"></a>
 				            </div>
 				        </div>
 				    </form>

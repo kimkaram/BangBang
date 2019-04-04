@@ -5,10 +5,10 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<c:import url="/views/common/header.jsp"/>
+		<c:import url="../common/header.jsp"/>
 	</head>
 	<body>
-		<c:import url="/views/common/top.jsp"/>
+		<c:import url="../common/top.jsp"/>
 		<div id="notice-index">
 			<div class="comuArea qnaArea">
 				<div class="comuWrap qnaWrap">

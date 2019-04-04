@@ -14,13 +14,23 @@ public class NoticeServiceImpl implements NoticeService{
 	private NoticeDao noticeDao; //ÀÚµ¿°´Ã¼»ý¼ºÇØÁÜ.
 
 	@Override
-	public List<Notice> selectNoticeList(HashMap<String, Object> map) {
-		return noticeDao.selectNoticeList(map);
+	public List<Notice> selectNoticeList() {
+		return noticeDao.selectNoticeList();
 	}
 
-	/*@Override
-	public int listCount() {
-		return noticeDao.listCount();
-	}*/
-	
+	@Override
+	public int insertNotice(Notice notice) {
+		return noticeDao.insertNotice(notice);
+	}
+
+	@Override
+	public int deleteNotice(int notice_no) {
+		return noticeDao.deleteNotice(notice_no);
+	}
+
+	@Override
+	public int updateNotice(Notice notice) {
+		return noticeDao.updateNotice(notice);
+	}
+
 }
