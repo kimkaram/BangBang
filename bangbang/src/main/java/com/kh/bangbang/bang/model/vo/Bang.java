@@ -258,6 +258,7 @@ public class Bang implements java.io.Serializable{
 		this.del_date = del_date;
 	}
 
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
@@ -270,8 +271,9 @@ public class Bang implements java.io.Serializable{
 				+ ", supply_area=" + supply_area + ", real_area=" + real_area + ", floor=" + floor + ", room_type="
 				+ room_type + ", direction=" + direction + ", door_type=" + door_type + ", build_date=" + build_date
 				+ ", build_type=" + build_type + ", con_type=" + con_type + ", pro_content=" + pro_content
-				+ ", contract_yn=" + contract_yn + ", pro_del=" + pro_del + ", del_date=" + del_date + "]";
+				+ ", contract_yn=" + contract_yn + ", pro_del=" + pro_del + ", del_date=" + del_date +"]";
 	}
+
 	
 	
 	
