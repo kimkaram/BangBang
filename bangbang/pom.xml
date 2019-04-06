@@ -6,6 +6,7 @@
 	<artifactId>bangbang</artifactId>
 	<name>bangbang</name>
 	<packaging>war</packaging>
+	<version>0.0.1</version>
 	
 	<properties>
 		<java-version>1.8</java-version>
