@@ -2,33 +2,47 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="bangMapper">
 
+	<!-- 매물정보 -->
 	<resultMap type="Bang" id="resultBang">
-		<id property="pro_no" column="pro_no"/>
-		<result property="id" column="id"/>
-		<result property="pro_address" column="pro_address"/>
-		<result property="pro_detail" column="pro_detail"/>
-		<result property="deposit" column="deposit"/>
-		<result property="rent" column="rent"/>
-		<result property="manage_pay" column="manage_pay"/>
-		<result property="loan" column="loan"/>
-		<result property="move_date" column="move_date"/>
-		<result property="room_count" column="room_count"/>
-		<result property="bath_count" column="bath_count"/>
-		<result property="supply_area" column="supply_area"/>
-		<result property="real_area" column="real_area"/>
-		<result property="floor" column="floor"/>
-		<result property="room_type" column="room_type"/>
-		<result property="direction" column="direction"/>
-		<result property="door_type" column="door_type"/>
-		<result property="build_date" column="build_date"/>
-		<result property="build_type" column="build_type"/>
-		<result property="con_type" column="con_type"/>
-		<result property="pro_content" column="pro_content"/>
-		<result property="contract_yn" column="contract_yn"/>
-		<result property="pro_del" column="pro_del"/>
-		<result property="del_date" column="del_date"/>
+		<id property="pro_no" column="pro_no" />
+		<result property="id" column="id" />
+		<result property="pro_address" column="pro_address" />
+		<result property="pro_detail" column="pro_detail" />
+		<result property="deposit" column="deposit" />
+		<result property="rent" column="rent" />
+		<result property="manage_pay" column="manage_pay" />
+		<result property="loan" column="loan" />
+		<result property="move_date" column="move_date" />
+		<result property="room_count" column="room_count" />
+		<result property="bath_count" column="bath_count" />
+		<result property="supply_area" column="supply_area" />
+		<result property="real_area" column="real_area" />
+		<result property="floor" column="floor" />
+		<result property="room_type" column="room_type" />
+		<result property="direction" column="direction" />
+		<result property="door_type" column="door_type" />
+		<result property="build_date" column="build_date" />
+		<result property="build_type" column="build_type" />
+		<result property="con_type" column="con_type" />
+		<result property="pro_content" column="pro_content" />
+		<result property="contract_yn" column="contract_yn" />
+		<result property="pro_del" column="pro_del" />
+		<result property="del_date" column="del_date" />
 	</resultMap>
 
+	<!-- 생활옵션 -->
+	<resultMap type="LiveOption" id="resultLiveOption">
+		<id property="pro_no" column="pro_no" />
+		<result property="live_no" column="live_no" />
+		<result property="live_pro_con" column="live_pro_con" />
+	</resultMap>
+
+	<!-- 주거옵션 -->
+	<resultMap type="ResOption" id="resultResOption">
+		<id property="pro_no" column="pro_no" />
+		<result property="res_no" column="res_no" />
+		<result property="res_pro_con" column="res_pro_con" />
+	</resultMap>
 
 
 	<select id="bangList" parameterType="Bang" resultType="Bang">
@@ -37,6 +51,31 @@
 		from property order by pro_no desc
 	]]>
 	</select>
+
+	<select id="bangInfo" parameterType="_int" resultType="Bang">
+	<![CDATA[
+		select *
+		from property
+		where pro_no = #{ pro_no } 
+	]]>
+	</select>
+
+	<select id="infoLiveBang" parameterType="_int" resultType="LiveOption">
+	<![CDATA[
+		select *
+		from live_pro_option
+		where pro_no = #{ pro_no }
+	]]>
+	</select>
+	<select id="infoResBang" parameterType="_int" resultType="ResOption">
+	<![CDATA[
+		select *
+		from res_pro_option
+		where pro_no = #{ pro_no }
+	]]>
+	</select>
+
+
 
 
 

@@ -9,8 +9,8 @@
 	<body>
 		<div id="bang-productList" class="prodLitWrap">
 		    <div class="prodTitBox">
-		        <strong>(전체)</strong>
-		        <span>/ (봉천역)</span>
+		        <strong>단위</strong>
+		        <span>/ (만원)</span>
 		    </div>
 		    <ul class="bangProdList">
 		        <c:import url="bangListForm.jsp" />
