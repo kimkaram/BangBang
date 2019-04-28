@@ -1,5 +1,8 @@
 package com.kh.bangbang.company.model.dao;
 
+import java.util.List;
+import java.util.Map;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -16,9 +19,25 @@ public class CompanyDao {
 	@Autowired
 	private BCryptPasswordEncoder bcryptPasswordEncoder;
 
-	public Company loginCheck(String memberId) {
-		Company loginCompany = mybatisSession.selectOne("companyMapper.selectLogin", memberId);
-		return loginCompany;
+	public Company selectCompany(String memberId) {
+		return mybatisSession.selectOne("companyMapper.selectCompany", memberId);
 	}
+
+	public int insertCompany(Company company) {
+		return mybatisSession.insert("companyMapper.insertCompany", company);
+	}
+
+	public int updateCompany(Company company) {
+		return mybatisSession.update("companyMapper.updateCompany", company);
+	}
+
+	public List<Company> selectAllCompany() {
+		return mybatisSession.selectList("companyMapper.selectAllCompany");
+	}
+
+	public List<Company> selectSearch(Map<String, String> option) {
+		return mybatisSession.selectList("companyMapper.selectSearch", option);
+	}
+
 
 }

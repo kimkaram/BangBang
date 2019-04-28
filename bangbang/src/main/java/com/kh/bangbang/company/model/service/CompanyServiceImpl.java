@@ -1,5 +1,8 @@
 package com.kh.bangbang.company.model.service;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,8 +16,30 @@ public class CompanyServiceImpl implements CompanyService{
 	private CompanyDao companyDao;
 	
 	@Override
-	public Company loginCheck(String memberId) {
-		return companyDao.loginCheck(memberId);
+	public Company selectCompany(String memberId) {
+		return companyDao.selectCompany(memberId);
 	}
+
+	@Override
+	public int insertCompany(Company company) {
+		return companyDao.insertCompany(company);
+	}
+
+	@Override
+	public int updateCompany(Company company) {
+		return companyDao.updateCompany(company);
+	}
+
+	@Override
+	public List<Company> selectAllCompany() {
+		return companyDao.selectAllCompany();
+	}
+
+	@Override
+	public List<Company> selectSearch(Map<String, String> option) {
+		return companyDao.selectSearch(option);
+	}
+
+
 
 }

@@ -4,42 +4,65 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="companyMapper">
 
-	<select id="loginCheck" parameterType="string" resultType="company" >
+	<select id="selectCompany" parameterType="string" resultType="Company">
 		<![CDATA[
-		select * from company
-		where com_id = #{member_id} 
+		select *
+		from company
+		where com_id = #{memberId}
 		]]>
 	</select>
 	
-<!-- 	<select id="selectMember" parameterType="string" >
-		select * from company 
-		where com_id = #{  }
-	</select>
-	
-	<select id="selectList" >
-		select * from company
-	</select>
-	
-	<insert id="insertCompany" parameterType="company" useGeneratedKeys="true">
+	<insert id="insertCompany" parameterType="Company" useGeneratedKeys="true">
+		<![CDATA[
 		insert into company 
-		values(#{  }, #{  }, #{  }, 
-			#{  }, #{  }, #{  }, #{  }, #{  }, #{  })
+		values(#{com_id}, #{com_name}, #{com_ceo}, #{com_no}, #{brokers_no}, 
+			   #{brokers_address}, #{com_phone}, #{com_content}, #{com_email})
+		]]>
 	</insert>
-	todo : insert 시 member 도 필요
 	
-	<delete id="deleteCompany" parameterType="String">
-		delete from company where com_id = #{  }
-	</delete>
-	
-	<update id="updateCompany" parameterType="company" >
+	<update id="updateCompany" parameterType="Company">
+		<![CDATA[
 		update company 
-		set com_name = #{  }, com_ceo = #{  }, 
-		com_no = #{  }, brokers_no = #{  }, 
-		brokers_address = #{  }, com_phone = #{  }, 
-		com_content = #{  }, com_email = #{  } 
-		where com_id = #{  }
-	</update> -->
+		set com_name = #{com_name}, com_ceo = #{com_ceo}, 
+			com_no = #{com_no}, brokers_no = #{brokers_no}, 
+			brokers_address = #{brokers_address}, com_phone = #{com_phone}, 
+			com_content = #{com_content}, com_email = #{com_email} 
+		where com_id = #{com_id}
+		]]>
+	</update>
 	
+	<select id="selectAllCompany" resultType="Company">
+		<![CDATA[
+		select com_id, com_name, com_ceo, com_no, brokers_no, brokers_address, com_phone, com_content, com_email, state
+		from company
+		join member on (id = com_id)
+		order by com_id
+		]]>
+	</select>
+	
+	<select id="selectSearch" parameterType="Map" resultType="Company">
+		select com_id, com_name, com_ceo, com_no, brokers_no, brokers_address, com_phone, com_content, com_email, state
+		from company
+		join member on (id = com_id)
+		<if test='count == 3'>
+		 	where state in (#{checkVal0}, #{checkVal1}, #{checkVal2})
+		</if>
+		<if test='count == 2'>
+			where state in (#{checkVal0}, #{checkVal1})
+		</if>
+		<if test='count == 1'>
+			where state = #{checkVal0}
+		</if>
+		<if test='selectVal != "all"'>
+				  and ${selectVal} like '%' || #{textVal} || '%'
+		</if>
+		<if test='selectVal == "all"'>
+				  and (com_id like '%' || #{textVal} || '%' or 
+					  com_name like '%' || #{textVal} || '%' or
+				      com_ceo like '%' || #{textVal} || '%')
+		</if>
+		order by com_id
+	</select>
 
 </mapper>
 

@@ -8,15 +8,40 @@ public class User {
 	private String user_name;
 	private String user_email;
 	private String user_phone;
+	private String user_pwd;
+	private String state;
 	
 	
-	public User(String user_id, String user_name, String user_email, String user_phone) {
+	public User(String user_id, String user_name, String user_email, String user_phone, String user_pwd,String state) {
 		super();
 		this.user_id = user_id;
 		this.user_name = user_name;
 		this.user_email = user_email;
 		this.user_phone = user_phone;
+		this.user_pwd = user_pwd;
+		this.state = state;
 	}
+
+
+	public String getState() {
+		return state;
+	}
+
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+
+	public String getUser_pwd() {
+		return user_pwd;
+	}
+
+
+	public void setUser_pwd(String user_pwd) {
+		this.user_pwd = user_pwd;
+	}
+
 
 
 	public String getUser_id() {
