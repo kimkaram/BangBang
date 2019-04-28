@@ -15,7 +15,7 @@
 					<p>회원가입 처리가 완료되었습니다.</p>
 					<p>BANG BANG과 함께해주셔서 감사합니다.</p>
 					<P>최고의 서비스로 보답해 드리겠습니다.</P>
-					<a href="javascript:void(0)" class="btnOk trans-300">확인</a>
+					<a href="main.do" class="btnOk trans-300">메인 페이지로 이동</a>
 				</div>
 			</div>
 		</div>

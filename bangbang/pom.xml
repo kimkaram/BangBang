@@ -27,7 +27,8 @@
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
+			<artifactId>spring-context-support</artifactId>
+			<!-- <artifactId>spring-context</artifactId> -->
 			<version>${org.springframework-version}</version>
 			<exclusions>
 				<!-- Exclude Commons Logging in favor of SLF4j -->
@@ -210,7 +211,7 @@
 		    <groupId>com.googlecode.json-simple</groupId>
 		    <artifactId>json-simple</artifactId>
 		    <version>1.1.1</version>
-		</dependency>
+		</dependency> 
 		
 		<!-- Jackson -->
 		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
@@ -249,7 +250,16 @@
 		    <version>3.3.1</version>
 		</dependency>
 		
+		<!-- gmail -->
+		<dependency>
+		   <groupId>javax.mail</groupId>
+		   <artifactId>mail</artifactId>
+		   <version>1.4.3</version>
+		</dependency>
+		
 	</dependencies>
+	
+	<!-- jenkins -->
 	<build>
 		<plugins>
 			<plugin>

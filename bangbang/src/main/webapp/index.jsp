@@ -7,6 +7,6 @@
 		<title>BangBang</title>
 	</head>
 	<body>
-		<jsp:forward page="main.do"/>
+		<jsp:forward page="bmap.do"/>
 	</body>
 </html>

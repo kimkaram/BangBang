@@ -26,5 +26,52 @@
 		<!-- <script src="/bangbang/resources/package/eum/common.js"></script>
 		<script src="/bangbang/resources/package/eum/select.style.js"></script> -->
 		<script src="/bangbang/resources/package/slider-pro-master/dist/js/jquery.sliderPro.js"></script>
+    <script type="text/javascript">
+    $.ajaxSyncPost = function(url, data, successCallback, failCallback) {
+
+      var ajaxOptions = {};
+      ajaxOptions.url = url;
+      ajaxOptions.data = JSON.stringify(data);
+      ajaxOptions.type = 'POST';
+      ajaxOptions.contentType = 'application/json';
+      ajaxOptions.dataType = 'json';
+      ajaxOptions.async = false;
+
+      if(successCallback != null) {
+        ajaxOptions.success = successCallback;
+      } else {
+        console.error("successCallback must declare.");
+      }
+
+      if(failCallback != null) {
+        ajaxOptions.error = failCallback;
+      }
+
+      $.ajax(ajaxOptions);
+    };
+
+    $.ajaxPost = function(url, data, successCallback, failCallback) {
+
+      var ajaxOptions = {};
+      ajaxOptions.url = url;
+      ajaxOptions.data = JSON.stringify(data);
+      ajaxOptions.type = 'POST';
+      ajaxOptions.contentType = 'application/json';
+      ajaxOptions.dataType = 'json';
+      ajaxOptions.async = true;
+
+      if(successCallback != null) {
+        ajaxOptions.success = successCallback;
+      } else {
+        console.error("successCallback must declare.");
+      }
+
+      if(failCallback != null) {
+        ajaxOptions.error = failCallback;
+      }
+
+      $.ajax(ajaxOptions);
+    };
+</script>
 	</head>
 </html>

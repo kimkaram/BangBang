@@ -26,9 +26,9 @@
 					</ul>
 					<input type="submit" class="btnLogin trans-300" value="로그인" />
 					<div class="f_menuBox">
-						<a href="javascript:void(0);" class="btnfindPw">비밀번호 찾기</a>
+						<a href="memberJoinMainPage.do" class="btnJoin">회원가입</a>
 						<span class="bar">|</span>
-						<a href="javascript:void(0);" class="btnJoin">일반 회원가입</a>
+						<a href="findPwdPage.do" class="btnfindPw">비밀번호 찾기</a>
 					</div>
 					</form>
 				</div>

@@ -7,17 +7,19 @@
 	<head>
 		<meta charset="UTF-8">
 		<c:import url="common/header.jsp"/>
+		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=59737c5b26055785bb94a434681d2eda&libraries=services,clusterer,drawing"></script>
 	</head>
 	<body>
 		<c:import url="common/top.jsp"/>
 		<div id="map-index">
-		    <div class="mapConWrap" style="background-image:url(./resources/images/bg_map.jpg);background-size:cover;height:100%;">
-				
-		    </div>
-		    <div class="sideNavRight">
-		    	<c:import url="map/mapSideBar.jsp"/>
-		    </div>
-		    <div class="mapSpace" id="mapSpace" style="width:100%;height:100%;border-left:1px solid #ddd;"></div>
+			<div id="loading-mask" style="display:none;"><img src="./resources/images/Ellipsis-1.8s-200px.svg" /></div>
+		    <div id="map" class="mapConWrap" style="height:100%;">
+		    	<c:import url="map/mapContainer.jsp" />
+			</div>
+
+			<div class="sideNavRight">
+				<c:import url="map/mapSideBar.jsp" />
+			</div>
 		</div>
 	</body>
 </html>

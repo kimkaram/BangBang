@@ -1,6 +1,25 @@
  
 /**------------------- BANG BANG CSS  -------------------**/
 
+/**-- 로딩 --**/
+#loading-mask{
+	position:fixed;
+	top:0;left:0;
+	width:100%;
+	height:100%;
+	background:rgba(0, 0, 0, 0.8);
+	z-index:999999;
+}
+#loading-mask img{
+	width:100px;
+	height:100px;
+	position:absolute;
+	top:50%;left:50%;
+	z-index:999;
+	margin-left:-50px;
+	margin-top:-50px;
+}
+
 /**---- �솃�럹�씠吏� 怨듯넻 ----**/
 #header{padding:20px;background:#898989;width:100%;min-width:1120px;box-sizing:border-box;}
 #header strong{

@@ -31,6 +31,7 @@
 	</head>
 	<body>
 		<c:import url="../common/top.jsp"/>
+		
 		<div id="qna-index">
 			<div class="comuArea qnaArea">
 				<div class="comuWrap qnaWrap">
@@ -42,6 +43,7 @@
 	                <div class="writeArea" style="display:none;"></div>
 	                <div class="comuLitWrap qnaLitWrap">
 	                    <ul>
+	                    	<c:if test="${listCount != 0 }">
 	                    	<c:forEach items="${qnaList }" var="qna">
 	                        <li class="comuLit">
 	                            <a href="javascript:void(0);" class="titBox">
@@ -59,8 +61,16 @@
 	                                	${qna.qna_content }
 	                                    <div class="comuModifyWrap">
 	                                        <div class="btnCtrl">
-	                                            <a href="javascript:void(0);" class="btnModify"><span>수정</span></a>
-	                                            <a href="javascript:void(0);" class="btnDelete"><span>삭제</span></a>
+	                                         <c:url var="qnaupdateview" value="qnaupdateview.do">
+												<c:param name="qna_no" value="${qna.qna_no }" />
+												<c:param name="user_id" value="${qna.user_id }"/>
+											</c:url>
+											 <c:url var="qnadelete" value="qnadelete.do">
+												<c:param name="qna_no" value="${qna.qna_no }" />
+												<c:param name="id" value="${qna.user_id }"/>
+											</c:url>
+	                                          <a href="${qnaupdateview }" class="btnModify"><span>수정</span></a>
+	                                          <a href="${qnadelete }" class="btnDelete"><span>삭제</span></a>
 	                                        </div>
 	                                    </div>
 	                                </div>
@@ -71,44 +81,53 @@
 	                                </c:if>
 	                              </div>
 	                              </li>
-	                             </c:forEach>   
-	                        
-	                       <!--  <li class="comuLit">
-	                            <a href="javascript:void(0);" class="titBox">
-	                                <span class="arrow"></span>
-	                                <span class="tit"><span class="titLabel a-on">미답변</span>Q&A 라구요</span>
-	                                <span class="date">2019-03-28</span>
-	                            </a>
-	                            <div class="contentBox" style="display:none;">
-	                                <div class="txtBox qnaBox qBox">
-	                                	Q&A인데요<br>
-	                                	이건 질문이구요.<br>
-	                                	이렇게 작성하시면 될 것 같아여.
-	                                    <div class="comuModifyWrap">
-	                                        <div class="btnCtrl">
-	                                            <a href="javascript:void(0);" class="btnModify"><span>수정</span></a>
-	                                            <a href="javascript:void(0);" class="btnDelete"><span>삭제</span></a>
-	                                        </div>
-	                                    </div>
-	                                </div>
-	                            </div>
-	                        </li> -->
+	                             </c:forEach> 
+	                            </c:if>
+	                             <c:if test="${listCount == 0 }">
+	                              	<div align="center"><h4>등록한 문의글이 없습니다.</h4></div>
+	                              </c:if>  
+	                             
 	                    </ul>
 	                </div>
 	                <div class="pagination">
 	                	<div class="page-con">
-	              		<a href="#;" class="btn-arrow btn-first"><span>맨처음</span></a>
-	                    <a href="#;" class="btn-arrow btn-prev"><span>이전</span></a>
-	                    <a href="#;" class="page page-on">1</a>
-	                    <a href="#;" class="page">2</a>
-	                    <a href="#;" class="page">3</a>
-	                    <a href="#;" class="page">4</a>
-	                    <a href="#;" class="page">5</a>
-	                    <a href="#;" class="btn-arrow btn-next"><span>다음</span></a>
-	                    <a href="#;" class="btn-arrow btn-last"><span>맨끝</span></a>
+	                	<c:url var="first" value="qnalist.do">
+	                		<c:param name="page" value="1"/>
+	                		<c:param name="id" value="${loginMember.id }" />
+	                	</c:url>
+	              		<a href="${first }" class="btn-arrow btn-first"><span>맨처음</span></a>
+	                    <c:url var="prev" value="qnalist.do">
+	                		<c:param name="page" value="${ currentPage - 1 }"/>
+	                		<c:param name="id" value="${loginMember.id }" />
+	                	</c:url>
+	                    <a href="${prev }" class="btn-arrow btn-prev"><span>이전</span></a>
+	                    <c:forEach var="p" begin="${startPage }" end="${endPage }" step="1">
+	                     <c:url var="move" value="qnalist.do">
+	                		<c:param name="page" value="${ p}"/>
+	                		<c:param name="id" value="${loginMember.id }" />
+	                	</c:url>
+	                    <c:if test="${p eq currentPage }">
+	                    	<a>${p }</a>
+	                    </c:if>
+	                    <c:if test="${p ne currentPage }">
+	                    	<a href="${move }">${p }</a>
+	                    </c:if>
+	                    </c:forEach>
+	                     <c:url var="next" value="qnalist.do">
+	                		<c:param name="page" value="${ currentPage + 1 }"/>
+	                		<c:param name="id" value="${loginMember.id }" />
+	                	</c:url>
+	                	<a href="${next }" class="btn-arrow btn-next"><span>다음</span></a>
+	                    <c:url var="last" value="qnalist.do">
+	                		<c:param name="page" value="${ maxPage}"/>
+	                		<c:param name="id" value="${loginMember.id }" />
+	                	</c:url>
+	                    <a href="${last }" class="btn-arrow btn-last"><span>맨끝</span></a>
 	                </div>
 				</div>
 			</div>
 		</div>
+		</div>
+					
 	</body>
 </html>

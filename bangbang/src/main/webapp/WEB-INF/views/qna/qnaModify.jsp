@@ -16,14 +16,14 @@
 						<strong>질문 수정하기</strong>
 						<div class="clr"></div>
 					</div>
-					<form name="modifyForm" id="" method="post" action="">
-				        <input type="hidden" name="bNo" value="">
+					<form name="modifyForm" id="" method="post" action="qnaupdate.do">
+				        <input type="hidden" name="qna_no" value="${qna.qna_no }">
 				        <div class="comuWriteWrap">
 							<div class="writeTit">
 								<div class="titCon">
 									<label>제목</label>
 									<div class="titBox">
-										<input type="text" name="title">
+										<input type="text" name="qna_title" value="${qna.qna_title }">
 									</div>
 								</div>
 								<ul>
@@ -31,24 +31,24 @@
 										<div class="titCon">
 											<label>작성자</label>
 											<div class="titBox">
-												<input type="text" name="writer" value="master" readonly />
+												<input type="text" name="user_id" value="${qna.user_id }" readonly />
 											</div>
 										</div>
 									</li>
-									<li>
+									<%-- <li>
 										<div class="titCon">
 											<label>작성일</label>	
 											<div class="titBox">
-												<input type="text" name="date" value="2019.03.01" readonly />
+												<input type="text" name="qna_date" value="${qna.qna_date }" readonly />
 											</div>
 										</div>
-									</li>
+									</li> --%>
 								</ul>
 							</div>
-				            <textarea name="">얍얍</textarea>
+				            <textarea name="qna_content">${qna.qna_content }</textarea>
 				            <div class="btnCtrl">
-				                <a href="javascript:void(0);" class="btnOk"><span>확인</span></a>
-				                <a href="javascript:void(0);" class="btnCancel"><span>취소</span></a>
+				                <a href="javascript:void(0);" class="btnOk"><input type="submit" value="확인"></a>
+				                <a href="javascript:void(0);" class="btnCancel"><input type="submit" value="취소"></a>
 				            </div>
 				        </div>
 				    </form>

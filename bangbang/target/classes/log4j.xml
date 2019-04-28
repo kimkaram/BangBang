@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.bang.finalProject">
+	<logger name="com.bang.bangbang">
 		<level value="info" />
 	</logger>
 	

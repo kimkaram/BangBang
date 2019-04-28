@@ -27,6 +27,7 @@
 					}
 				});
 			});
+		
 		</script>
 	</head>
 	<body>
@@ -36,13 +37,13 @@
 				<div class="comuWrap noticeWrap">
 					<div class="comuTitBox">
 						<strong>공지사항</strong>
-						<a href="javascript:void(0);" onclick="javascript:location.href='nwrite.do';" class="btnWrite"><span>글쓰기</span></a>
 						<div class="clr"></div>
 					</div>
 	                <div class="writeArea" style="display:none;"></div>
 	                <div class="comuLitWrap noticeLitWrap">
 	                    <ul>
 	                    	<c:forEach items="${noticeList }" var="notice">
+	                    	<input type="hidden" name="notice_no" value="${notice.notice_no }">
 	                        <li class="comuLit">
 	                            <a href="javascript:void(0);" class="titBox">
 	                                <span class="arrow"></span>
@@ -52,29 +53,41 @@
 	                            <div class="contentBox" style="display:none;">
 	                                <div class="txtBox">
 	                                	${notice.notice_content }
-	                                    <div class="comuModifyWrap">
-	                                        <div class="btnCtrl">
-	                                            <a href="javascript:void(0);" onclick="javascript:location.href='nupdate.do';" class="btnModify"><span>수정</span></a>
-	                                            <a href="javascript:void(0);" onclick="javascript:location.href='ndelete.do';" class="btnDelete"><span>삭제</span></a>
-	                                        </div>
-	                                    </div>
 	                                </div>
 	                            </div>
 	                        </li>
 	                        </c:forEach>
 	                    </ul>
 	                </div>
-	                <div class="pagination">
+	                 <div class="pagination">
 	                	<div class="page-con">
-	              		<a href="#;" class="btn-arrow btn-first"><span>맨처음</span></a>
-	                    <a href="#;" class="btn-arrow btn-prev"><span>이전</span></a>
-	                    <a href="#;" class="page page-on">1</a>
-	                    <a href="#;" class="page">2</a>
-	                    <a href="#;" class="page">3</a>
-	                    <a href="#;" class="page">4</a>
-	                    <a href="#;" class="page">5</a>
-	                    <a href="#;" class="btn-arrow btn-next"><span>다음</span></a>
-	                    <a href="#;" class="btn-arrow btn-last"><span>맨끝</span></a>
+	                	<c:url var="first" value="nlist.do">
+	                		<c:param name="page" value="1"/>
+	                	</c:url>
+	              		<a href="${first }" class="btn-arrow btn-first"><span>맨처음</span></a>
+	                    <c:url var="prev" value="nlist.do">
+	                		<c:param name="page" value="${ currentPage - 1 }"/>
+	                	</c:url>
+	                    <a href="${prev }" class="btn-arrow btn-prev"><span>이전</span></a>
+	                    <c:forEach var="p" begin="${startPage }" end="${endPage }" step="1">
+	                     <c:url var="move" value="nlist.do">
+	                		<c:param name="page" value="${ p}"/>
+	                	</c:url>
+	                    <c:if test="${p eq currentPage }">
+	                    	<a>${p }</a>
+	                    </c:if>
+	                    <c:if test="${p ne currentPage }">
+	                    	<a href="${move }">${p }</a>
+	                    </c:if>
+	                    </c:forEach>
+	                     <c:url var="next" value="nlist.do">
+	                		<c:param name="page" value="${ currentPage + 1 }"/>
+	                	</c:url>
+	                	<a href="${next }" class="btn-arrow btn-next"><span>다음</span></a>
+	                    <c:url var="last" value="nlist.do">
+	                		<c:param name="page" value="${ maxPage}"/>
+	                	</c:url>
+	                    <a href="${last }" class="btn-arrow btn-last"><span>맨끝</span></a>
 	                </div>
 				</div>
 			</div>

@@ -6,12 +6,61 @@
 	ResultMap 자동 처리됨. 별도 작성 필요 없음 -->
 	
 	<select id="selectLogin" parameterType="Member" resultType="Member" >
-	<![CDATA[
-		select * 
-		from member
-		where id = #{ id } 
-		and pwd = #{ pwd }
-	]]>
-	<!-- and userpwd = #{ userpwd } -->
+		<![CDATA[
+			select * 
+			from member
+			where id = #{ id } 
+		]]>
 	</select>
+	
+	<update id="memberDel" parameterType="String">
+		<![CDATA[
+			UPDATE MEMBER
+			SET STATE = '탈퇴',
+	        DATE1 = SYSDATE
+	     	WHERE ID = #{id}
+	    ]]>
+	</update>
+	
+	<update id="updatePwd" parameterType="Member">
+		<![CDATA[
+			update member
+			set pwd = #{pwd}
+			where id = #{id}
+		]]>
+	</update>
+	
+	<insert id="memberInsert" parameterType="Member">
+		<![CDATA[
+			INSERT INTO MEMBER 
+			VALUES(#{id},#{pwd},#{type},default,null)
+		]]>
+	</insert>
+	
+	<select id="idCheck" parameterType="Member" resultType="Member" >
+		<![CDATA[
+			select * 
+			from member
+			where id = #{ id } 
+		]]>
+	</select>
+	
+	<update id="adminUserDelte" parameterType="String">
+		<![CDATA[
+			UPDATE MEMBER
+			SET STATE = '제재',
+	        DATE1 = SYSDATE
+	     	WHERE ID = #{id}
+	    ]]>
+	</update>
+	
+	<update id="adminUserDelteUndo" parameterType="String">
+		<![CDATA[
+			UPDATE MEMBER
+			SET STATE = '일반',
+	        DATE1 = null
+	     	WHERE ID = #{id}
+	    ]]>
+	</update>
+
 </mapper>

@@ -30,18 +30,18 @@
 										<div class="titCon">
 											<label>작성자</label>
 											<div class="titBox">
-												<input type="text" name="writer" value="master" readonly />
+												<input type="text" name="writer" value="관리자" readonly />
 											</div>
 										</div>
 									</li>
-									<li>
+									<!-- <li>
 										<div class="titCon">
-											<label>작성일</label>	
+											<label>번호</label>	
 											<div class="titBox">
-												<input type="text" name="notice_date" value="2019-03-01" readonly />
+												<input type="text" name="notice_no" value="" readonly />
 											</div>
 										</div>
-									</li>
+									</li> -->
 								</ul>
 							</div>
 				            <textarea name="notice_content"></textarea>

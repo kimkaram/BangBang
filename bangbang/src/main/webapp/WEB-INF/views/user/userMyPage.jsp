@@ -1,134 +1,206 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<c:import url="../common/header.jsp"/>
+      	<c:import url="../common/header.jsp"/>
+      	<script type="text/javascript">
+      	
+      		function selectMyScheduler() {
+      			var id = "${sessionScope.loginMember.id}";
+      			$.ajax({
+					url: "selectMyScheduler.do",
+					data: {id: id},
+					type: "post",
+					datatype: "json",
+					success: function(data){
+						/* $("#dis").hide(); */
+						$("#add").empty();
+						
+						var jsonStr = JSON.stringify(data);
+						var json = JSON.parse(jsonStr);
+
+						if(json.list.length === 0) {
+							$("#add").html($("#add").html() + ("<tr><td colspan='9'>조회 결과가 없습니다.</td></tr>"));
+							return true;
+						}
+						
+						for(var i in json.list){
+							var book_no = json.list[i].book_no;
+							var pro_no = json.list[i].pro_no;
+							
+							$("#add").html($("#add").html() + ("<tr><td><p>" +
+										   book_no + "</p></td><td><p>" + 
+										   pro_no + "</p></td><td><p>" + 
+										   json.list[i].deposit + " / " + json.list[i].rent + "</p></td><td><p>" +
+										   json.list[i].build_type + "</p></td><td><p>" +
+										   json.list[i].con_type + "</p></td><td><p>" +
+										   json.list[i].book_date + "</p></td><td><p>" +
+										   json.list[i].com_name + "</p></td><td><p>" + 
+										   json.list[i].com_phone + "</p></td><td class='tModify' id='add" + i + "'>" +
+										   "<button class='show' value='" + pro_no + "'>매물보기</button>" + 
+										   "<button class='del' value='" + book_no + "'>삭제</button><button style='display:none;' class='show2' value='" + json.list[i].com_id + "'></button>"));
+						} 
+					},
+					error: function(jqXHR, textstatus, errorthrown){
+						console.log("error : " + jqXHR + ", " + textstatus + ", " + errorthrown);
+					}
+				}); //ajax
+      		}
+      	
+ 			$(function(){
+ 				selectMyScheduler();
+				
+				$(document).on("click", ".del", function() {
+					
+					$.ajaxPost('deleteScheduler.do', {
+						bookNo: $('.del').val()
+					}, function(result) {
+						alert('삭제되었습니다.');
+						selectMyScheduler();
+					}, function(result) {
+						alert(result.message);
+					});
+					
+// 				 	$.ajax({
+// 						url: "deleteScheduler.do",
+// 						data: JSON.stringify({bookNo: $(".del").val()}),
+// 						type: "post",
+// 						contentType: 'application/json',
+// 						dataType : "json",
+// 						success: function(result){
+// 							console.log("ok");
+// 							if(result.success) {
+// 								alert('삭제되었습니다.');
+// 							} else {
+// 								alert('에러...');
+// 							}
+// 						},
+// 						error: function(jqXHR, textstatus, errorthrown){
+// 							console.log("error : " + jqXHR + ", " + textstatus + ", " + errorthrown);
+// 						}
+// 					}); 
+				});
+				
+				$(document).on("click", ".show", function() {
+
+					location.href = "binfo.do?pro_no=" + $('.show').val() + "&id=" + $('.show2').val();
+					
+				});
+				
+			});
+		</script>
 	</head>
 	<body>
-		<c:import url="../common/top.jsp"/>
-		
+   	<c:import url="../common/top.jsp"/>
 		<div id="member-info">
 			<div class="prodLitArea myInfoArea">
-	            <form name="infoForm" id="infoForm" method="post" action="">
 				<div class="myInfoWrap">
 					<div class="myInfoTitBox">
-						<strong>내 계정</strong>
+						<strong>회원 정보</strong>
 					</div>
-					
 					<div class="myContent">
-						<h2 class="myInfoTit"><span>내 계정</span></h2>
-	
+						<h2 class="myInfoTit"><span>회원 정보</span></h2>
 						<div class="myInfoTop">
-							<span>개인정보</span>
-							<a href="javascript:void(0);" class="btnWithdrawl"><span>회원탈퇴</span></a>
-							<div class="clr"></div>
+							<span>내 정보</span>
+							<a href="memberDel.do" class="btnWithdrawl"><span>회원탈퇴</span></a>
+							<div class="clr">
+							</div>
 						</div>
-	
 						<div class="myInfoCon">
 							<table>
 								<tr>
 									<th>아이디</th>
 									<td>
-										<input type="text" name="id" style="width:285px;" />
+										<span>${user.user_id}</span>
 									</td>
 								</tr>
 								<tr>
 									<th>이름</th>
 									<td>
-										<input type="text" name="name" style="width:285px;" />
-									</td>
+							        	<span>${user.user_name}</span>
+							     	</td>
+							    </tr>
+							    <tr>
+							    	<th>전화번호</th>
+							    	<td>
+								    	<span>${user.user_phone}</span>
+								    </td>
 								</tr>
-								<tr>
-									<th>휴대폰 번호</th>
-									<td>
-										<div class="select trans-300" style="width:130px;">
-											<span class="ctrl"><span class="arrow"></span></span>
-											<button type="button" name="tel1" for="tel1" class="my_value">010</button>
-											<ul name="tel1" id="tel1" class="a_list" title="select tel1">
-	                                            <li class=""><a href="javascript:void(0);" value="">선택하세요</a></li>
-	                                            <li class=""><a href="javascript:void(0);" value="">010</a></li>
-	                                            <li class=""><a href="javascript:void(0);" value="">011</a></li>
-	                                            <li class=""><a href="javascript:void(0);" value="">016</a></li>
-	                                            <li class=""><a href="javascript:void(0);" value="">017</a></li>
-	                                            <li class=""><a href="javascript:void(0);" value="">018</a></li>
-	                                            <li class=""><a href="javascript:void(0);" value="">019</a></li>
-											</ul>
-										</div>
-										<span class="bar" style="width:25px;">-</span>
-										<input type="text" name="tel2" value="" style="width:130px;" />
-										<span class="bar" style="width:25px;">-</span>
-										<input type="text" name="tel3" value="" style="width:130px;" />
-									</td>
-								</tr>
-								<tr>
-									<th>이메일 주소</th>
-									<td>
-										<input type="email" name="email" value="123@gmail.com" style="width:285px;" />
-									</td>
-								</tr>
-								<tr>
-									<th>통화가능시간</th>
-									<td>
-										<dl>
-											<dt>월요일 ~ 금요일</dt>
-											<dd>
-												<input type="number" min="00" max="24" style="width:80px;" />
-												<span class="bar" style="width:25px;">:</span>
-												<input type="number" min="00" max="59" style="width:80px;"  />
-											</dd>
-											<dd><span class="bar" style="width:25px;">~</span></dd>
-											<dd>
-												<input type="number" min="00" max="24" style="width:80px;"  />
-												<span class="bar" style="width:25px;">:</span>
-												<input type="number" min="00" max="59" style="width:80px;"  />
-											</dd>
-										</dl>
-										<dl>
-											<dt>
-												<select>
-													<option>추가 가능시간</option>
-													<option>토요일</option>
-													<option>일요일</option>
-													<option>공휴일</option>
-													<option>토,일,공휴일</option>
-												</select>
-											</dt>
-											<dd>
-												<input type="number" min="00" max="24" style="width:80px;" />
-												<span class="bar" style="width:25px;">:</span>
-												<input type="number" min="00" max="59" style="width:80px;"  />
-											</dd>
-											<dd><span class="bar" style="width:25px;">~</span></dd>
-											<dd>
-												<input type="number" min="00" max="24" style="width:80px;"  />
-												<span class="bar" style="width:25px;">:</span>
-												<input type="number" min="00" max="59" style="width:80px;"  />
-											</dd>
-										</dl>
-									</td>
-								</tr>
-								<tr>
-									<th>비밀번호 변경</th>
-									<td class="pwChRow">
-										<p><input type="password" name="old_password" placeholder="현재 비밀번호" class="pwCh1" style="width:440px;" /><span class="txtGray">현재 비밀번호를 입력하세요</span></p>
-										<p><input type="password" name="new_password_1" placeholder="변경될 비밀번호" class="pwCh2" style="width:440px;" /><span class="txtGray">변경될 비밀번호를 입력하세요</span></p>
-										<p><input type="password" name="new_password_2" placeholder="변경될 비밀번호 확인" class="pwCh3" style="width:440px;" /><span class="txtGray">현재 비밀번호를 한번더 입력하세요</span></p>
-									</td>
-								</tr>
+							 	<tr>
+							 		<th>이메일</th>
+							 		<td>
+							       		<span>${user.user_email}</span>
+							       	</td>
+							    </tr>
 							</table>
-						</div>
+					    </div>
 					</div>
-	
 					<div class="btnCtrl">
-						<a href="/" class="btnCancel"><span>취소</span></a>
-						<a href="javascript:void(0);" onclick="$.member.info.onModify();" class="btnSave"><span>확인</span></a>
+						<a href="userUpdatePage.do" class="btnSave"><span>정보&nbsp;수정</span></a>
+					    <a href="updatePwdPage.do" class="btnCancel"><span>비밀번호 수정</span></a>
+					</div>
+					
+			   		<!-- 예약 리스트 -->
+					<div id="bangData" class="container">
+						<div class="litCdBox">
+							<dl>
+								<dd class="litCd_1 left">
+								</dd>
+								<dd class="litCd_2 left">
+									<strong class="infoTit">예약 정보</strong>
+								</dd>
+								<div class="clr">
+								</div>
+							</dl>
+						</div>
+						<table class="tableConWrap">
+							<thead>
+								<th style="width:5%;">예약 번호</th>
+								<th style="width:5%;">매물 번호</th>
+								<th style="width:10%;">보증금/월세</th>
+								<th style="width:10%;">건물 형태</th>
+								<th style="width:10%;">계약형태</th>
+								<th style="width:20%;">날짜/시간</th>
+								<th style="width:20%;">업체 이름</th>
+								<th style="width:20%;">연락처</th>
+								<th style="width:10%;" class="tModify">관리</th>
+							</thead>
+							<tbody id="add">
+							</tbody>
+<%-- 							<tbody id="dis">
+							<c:forEach items="${userList }" var="user">
+								<tr>
+									<td>
+										<p>${user.user_id }</p>							
+									</td>
+									<td >
+										<p>${user.user_name }</p>							
+									</td>
+									<td>
+										<p>${user.user_email }</p>							
+									</td>
+									<td>
+										<p>${user.user_phone }</p>
+									</td>
+									<td>
+										<p>${user.state }</p>
+									</td>
+									<td class="tModify">
+										<c:url var="adminUserUpdateView" value="adminUserUpdateView.do">
+											<c:param name="user_id" value="${user.user_id }" />
+										</c:url>
+										<a href="${adminUserUpdateView}" >삭제</a>
+									</td>
+								</tr>
+							</c:forEach>
+							</tbody> --%>
+						</table>
 					</div>
 				</div>
-			    </form>
 			</div>
 		</div>
-</body>
+	</body>
 </html>
