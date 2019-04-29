@@ -8,14 +8,18 @@
 <head>
 <meta charset="UTF-8">
 </head>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	$(function(){
 		if(${blist.size()} == 0){
-			alert("찜하기 목록이 없습니다.");
 		}
 	});
-	</script>
+	</script> -->
 <body>
+	<c:if test="${ blist.size() eq 0 }">
+	<li class="prodLit curPoint" id="bangLi">
+		<p> 등록된 찜 리스트가 없습니다. </p>
+		</li>
+	</c:if>
 	<c:forEach items="${blist}" var="Bang">
 		<c:url var="binfo" value="binfo.do">
 			<c:param name="pro_no" value="${ Bang.pro_no }" />

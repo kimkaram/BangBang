@@ -565,7 +565,6 @@
 			 return;
 		 }
 	}// filecheck
-	
  </script>
 						<div class="tableTit">매물 시설사진</div>
 						<div class="comment_box">

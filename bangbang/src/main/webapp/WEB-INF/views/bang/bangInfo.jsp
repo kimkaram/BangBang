@@ -24,7 +24,7 @@
 		<div class="prodViewArea contentsArea">
 			<div id="bang-productInfo">
 				<div class="prodTitBox">
-					<strong> <%-- ${ Bang.pro_address } --%><br>
+					<strong> ${ schedulerCheck }<br>
 					</strong>
 				</div>
 				<div class="viewConWrap">
@@ -448,7 +448,7 @@
 					<!--  지도 라이브러리 -->
 					<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5c60887e0ed245519b063ce242301a62"></script>
 					
-					<div id="map" style="width:765px;height:510px;"></div>
+					<div id="map" style="width:814px;height:510px;"></div>
 					<script>
 						var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 						    mapOption = {
@@ -561,12 +561,14 @@
 												<a href="javascript:void(0);" onclick="delBookmark();" id="dLike" name="dLike" 
 												class="btnLike trans-300" <c:if test="${ bcheck ne 1 }"> style="display:none" </c:if>><span>찜삭제</span></a>
 												<c:if test="${ userType ne 'usermy' }">
+												<c:if test="${ schedulerCheck ne 1 }">
 												<c:if test="${ !empty company }">
 		                                	 		<a href="companySchedulerPage.do?id=${ Bang.id }&no=${ Bang.pro_no }" class="btnLike trans-300"><span style="margin-left: 14px;">방문 예약</span></a>
 				                             	 </c:if>
 					                              <c:if test="${ !empty user }">
 					                                 <a href="userSchedulerPage.do?id=${ Bang.id }&no=${ Bang.pro_no }" class="btnLike trans-300"><span style="margin-left: 14px;">방문 예약</span></a>
 					                              </c:if>
+					                             </c:if>
 					                              </c:if>
 										</c:if>
 		                              </c:if>
@@ -639,10 +641,6 @@
 										            map: map2,
 										            position: coords2
 										        });
-										        /* var infowindow2 = new daum.maps.InfoWindow({
-										            content: '<div style="width:150px;text-align:center;padding:6px 0;">${ company.com_name}</div>'
-										        });
-										        infowindow2.open(map2, marker2); */
 										        map2.setCenter(coords2);
 										    } 
 										});
@@ -663,16 +661,6 @@
 								</c:if>
 							</li>
 							</c:if>
-							
-							<!-- <li class="sideBox sideBox4">
-								<div class="sendBox sendBox2">
-									<p class="sendTit">
-										<strong>예약챗봇</strong>
-									</p>
-									<textarea name="askText" placeholder="챗봇으로 간편하게 예약해보세요!"></textarea>
-								</div>
-							</li> -->
-						</ul>
 						<c:url var="bupView" value="bupdateView.do">
 							<c:param name="pro_no" value="${ Bang.pro_no }"/>
 							<c:param name="id" value="${ Bang.id }"/>

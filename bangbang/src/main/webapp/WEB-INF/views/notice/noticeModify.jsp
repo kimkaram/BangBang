@@ -23,7 +23,7 @@
 								<div class="titCon">
 									<label>제목</label>
 									<div class="titBox">
-										<input type="text" name="notice_title" value="${notice.notice_title }">
+										<input type="text" name="notice_title" value="${notice.notice_title }" required />
 									</div>
 								</div>
 								<ul>
@@ -45,7 +45,7 @@
 									</li>
 								</ul>
 							</div>
-				            <textarea name="notice_content">${notice.notice_content }</textarea>
+				            <textarea name="notice_content" required>${notice.notice_content }</textarea>
 				            <div class="btnCtrl">
 				              <a href="javascript:void(0);" class="btnOk"><input type="submit" value="확인"></a>
 				                <a href="javascript:void(0);" class="btnCancel"><input type="reset" value="취소"></a> 

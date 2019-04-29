@@ -336,6 +336,14 @@
 			where pro_no = #{ pro_no }
 		]]>
 	</update>
+	
+	<select id="selectSchedulerCheck" parameterType="hashmap" resultType="_int">
+		<![CDATA[
+			select count(*)
+			from scheduler
+			where pro_no  = #{ pro_no } and user_id = #{ userid }
+		]]>
+	</select>
 
 
 

@@ -193,8 +193,13 @@ public class BangServiceImpl implements BangService{
 	}
 	@Override
 	public int contractBang(int pro_no) {
-		// TODO Auto-generated method stub
+		// 방 계약여부
 		return bangDao.contractBang(pro_no);
+	}
+	@Override
+	public int selectSchedulerCheck(HashMap<String, Object> map) {
+		// 스케쥴 존재 여부
+		return bangDao.selectSchedulerCheck(map);
 	}
 
 

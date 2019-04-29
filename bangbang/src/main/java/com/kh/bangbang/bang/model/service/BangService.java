@@ -48,5 +48,6 @@ public interface BangService {
 	List<Bang> selectUserBangList(HashMap<String, Object> map);
 	int countUserBang(String id);
 	int contractBang(int pro_no);
+	int selectSchedulerCheck(HashMap<String, Object> map);
 
 }

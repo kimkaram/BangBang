@@ -176,4 +176,9 @@ public class BangDao {
 		return session.update("bangMapper.updateContract", pro_no);
 	}
 
+	public int selectSchedulerCheck(HashMap<String, Object> map) {
+		// 스케줄러 확인
+		return session.selectOne("bangMapper.selectSchedulerCheck", map);
+	}
+
 }

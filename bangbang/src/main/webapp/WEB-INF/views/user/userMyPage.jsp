@@ -31,7 +31,7 @@
                   for(var i in json.list){
                      var book_no = json.list[i].book_no;
                      var pro_no = json.list[i].pro_no;
-                     
+                     if ( json.list[i].com_name != null){
                      $("#add").html($("#add").html() + ("<tr><td><p>" +
                               book_no + "</p></td><td><p>" + 
                               pro_no + "</p></td><td><p>" + 
@@ -43,6 +43,19 @@
                               json.list[i].com_phone + "</p></td><td class='tModify' id='add" + i + "'>" +
                               "<a href='binfo.do?userType=usermy&pro_no="+ pro_no +"&id="+ json.list[i].com_id+"'>매물보기</a>" + 
                               "<button class='del' value='" + book_no + "'>삭제</button>"));
+                     } else {
+                        $("#add").html($("#add").html() + ("<tr><td><p>" +
+                                 book_no + "</p></td><td><p>" + 
+                                 pro_no + "</p></td><td><p>" + 
+                                 json.list[i].deposit + " / " + json.list[i].rent + "</p></td><td><p>" +
+                                 json.list[i].build_type + "</p></td><td><p>" +
+                                 json.list[i].con_type + "</p></td><td><p>" +
+                                 json.list[i].book_date + "</p></td><td><p>" +
+                                 json.list[i].user_name + "</p></td><td><p>" + 
+                                 json.list[i].user_phone + "</p></td><td class='tModify' id='add" + i + "'>" +
+                                 "<a href='binfo.do?userType=usermy&pro_no="+ pro_no +"&id="+ json.list[i].com_id+"'>매물보기</a>" + 
+                                 "<button class='del' value='" + book_no + "'>삭제</button>"));
+                     }
                   } 
                },
                error: function(jqXHR, textstatus, errorthrown){
@@ -157,17 +170,9 @@
                
                   <!-- 예약 리스트 -->
                <div id="bangData" class="container">
-                  <div class="litCdBox">
-                     <dl>
-                        <dd class="litCd_1 left">
-                        </dd>
-                        <dd class="litCd_2 left">
-                           <strong class="infoTit">예약 정보</strong>
-                        </dd>
-                        <div class="clr">
-                        </div>
-                     </dl>
-                  </div>
+                        <div class="myInfoTop">
+							<span>내 예약 정보</span>
+						</div> 
                   <table class="tableConWrap">
                      <thead>
                         <th style="width:5%;">예약 번호</th>

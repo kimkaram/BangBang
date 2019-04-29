@@ -118,7 +118,7 @@
 		    	            					 "</p><p class='add5'>이름 : " + json.name + 
 		    	            					 "</p><p class='add6'>이메일 : " + json.email + 
 		    	            					 "</p><p class='add7'>연락처 : " + json.phone + 
-		    	            					 "<button class='close'>확인</button><div class='del'></div></div>");
+		    	            					 "</p><button class='close'>확인</button><div class='del'></div></div>");
 		    	            	
 		    	            	if(strid == userid){
 		    	            		$(".del").html("<button class='delete' value=" + event.id + ">삭제</button>");

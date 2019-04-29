@@ -680,7 +680,6 @@
 			 return;
 		 }
 	}// filecheck
-	
  	//파일 추가
 	$().ready(function(){
 		$("#addfile").click(function(){

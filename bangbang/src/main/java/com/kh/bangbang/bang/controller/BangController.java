@@ -61,12 +61,22 @@ public class BangController {
 	public String bangWriteView(Model model) {
 		return "bang/bangWrite";
 	}
-	
 	@RequestMapping("binfo.do")
 //	public String infoBangView(Model model, @RequestParam(name="pro_id", required=true) String pro_id,@RequestParam(name="pro_no", required=true) int pro_no) {
 	public String infoBangView(Model model, HttpSession session, HttpServletRequest request) {
 		String id = request.getParameter("id");
 		int pro_no = Integer.parseInt(request.getParameter("pro_no"));
+		String userid = null;
+		int schedulerCheck = 0;
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		
+		if( request.getParameter("userid") != null) {
+		userid = request.getParameter("userid");
+		map.put("userid", userid);
+		map.put("pro_no", pro_no);
+		schedulerCheck = bservice.selectSchedulerCheck(map);
+		}
+		
 		int bcheck = 0;
 		String userType = request.getParameter("userType");
 		Bang Bang = bservice.selectInfoBang(pro_no);
@@ -95,6 +105,7 @@ public class BangController {
 		model.addAttribute("bfile", bfile);
 		model.addAttribute("bcheck", bcheck);
 		model.addAttribute("userType", userType);
+		model.addAttribute("schedulerCheck", schedulerCheck);
 		return "bang/bangInfo";
 	}
 	

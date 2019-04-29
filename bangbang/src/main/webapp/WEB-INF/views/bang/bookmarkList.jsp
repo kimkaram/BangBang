@@ -9,8 +9,7 @@
 	</head>
 	<body>
 		<c:import url="../common/top.jsp"/>
-		<div id="bang-lists">
-			<c:import url="bookmarkSide.jsp" />
+		<div id="bang-lists" class="zzimList">
 			<div class="prodLitArea contentsArea">
 				<c:import url="bookmarkListCon.jsp" />
 			</div>

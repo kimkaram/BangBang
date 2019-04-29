@@ -13,6 +13,9 @@
 		<c:url var="binfo" value="binfo.do">
 			<c:param name="pro_no" value="${ Bang.pro_no }" />
 			<c:param name="id" value="${ Bang.id }"/>
+			<c:if test="${ !empty sessionScope.loginMember }">
+				<c:param name="userid" value="${ sessionScope.loginMember.id }"/>
+			</c:if>
 			<c:param name="userType" value="all"/>
 			<%-- <c:param name="pro_id" value="${ Bang.id }"/> --%>
 		</c:url>

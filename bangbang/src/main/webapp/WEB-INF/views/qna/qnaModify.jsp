@@ -23,7 +23,7 @@
 								<div class="titCon">
 									<label>제목</label>
 									<div class="titBox">
-										<input type="text" name="qna_title" value="${qna.qna_title }">
+										<input type="text" name="qna_title" value="${qna.qna_title }" required />
 									</div>
 								</div>
 								<ul>
@@ -45,10 +45,10 @@
 									</li> --%>
 								</ul>
 							</div>
-				            <textarea name="qna_content">${qna.qna_content }</textarea>
+				            <textarea name="qna_content" required>${qna.qna_content }</textarea>
 				            <div class="btnCtrl">
 				                <a href="javascript:void(0);" class="btnOk"><input type="submit" value="확인"></a>
-				                <a href="javascript:void(0);" class="btnCancel"><input type="submit" value="취소"></a>
+				                <a href="qnalist.do?id=${ loginMember.id }" class="btnCancel">취소</a>
 				            </div>
 				        </div>
 				    </form>

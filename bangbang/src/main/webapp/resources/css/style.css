@@ -451,8 +451,10 @@ table.tableConWrap tr.blueAlert{background:#e5f1fe;}
 table.tableConWrap tr.redAlert .chkRow,
 table.tableConWrap tr.blueAlert .chkRow{background:#fff;}
 table.tableConWrap .tModify,
-table.tableConWrap .tModify a{color:#81abe5;}
-table.tableConWrap .tModify a{
+table.tableConWrap .tModify a,
+table.tableConWrap .tModify button{color:#81abe5;}
+table.tableConWrap .tModify a,
+table.tableConWrap .tModify button{
 	display: block;
     width: 50px;
     font-size: 11px;
@@ -466,7 +468,8 @@ table.tableConWrap .tModify a{
     border-radius: 2px;
     margin-top:5px;
 	}
-table.tableConWrap .tModify a:first-child{margin-top:0;}
+table.tableConWrap .tModify a:first-child,
+table.tableConWrap .tModify button:first-child{margin-top:0;}
 table.tableConWrap .tLeft{text-align:left;}
 table.tableConWrap .tRight{text-align:right;}
 
@@ -975,7 +978,7 @@ div.prodLitWrap ul li.prodLit.start{margin-left:0;}
 div.prodLitWrap .prodI_Box > a{display:block;width:242px;height:161px;}
 div.prodLitWrap .prodI_Box .p_Img{width:242px;height:161px;}
 div.prodLitWrap .prodI_Sum dl dd{font-size:12px;padding:2px 15px;}
-div.prodLitWrap .prodI_Sum dl dd:first-child{padding:15px 10px 15px;}
+div.prodLitWrap .prodI_Sum dl dd:first-child{padding:15px 10px 10px;}
 div.prodLitWrap .prodI_Sum dl dd.lastDD{padding:3px 0 0 0;}
 div.prodLitWrap .prodI_Sum dl dd span,
 div.prodLitWrap .prodI_Sum dl dd strong{vertical-align:bottom;}
@@ -1079,7 +1082,7 @@ div.sideBangLit .bangInfoBox .imgBox{width:120px;height:105px;}
 div.sideBangLit .bangInfoBox .imgBox img{width:100%;height:100%;}
 div.sideBangLit .bangInfoBox .infoBox{width:245px;box-sizing:border-box;}
 div.sideBangLit .bangInfoBox .infoBox dl dd{padding:2px 0;}
-div.sideBangLit .bangInfoBox .infoBox .row1{margin-top:4px;margin-bottom:1px;}
+div.sideBangLit .bangInfoBox .infoBox .row1{margin-top:10px;margin-bottom:1px;}
 div.sideBangLit .bangInfoBox .infoBox .p_Way{
 	display:inline-block;
 	padding:0 5px;
@@ -1118,15 +1121,19 @@ div.sideBangLit .bangInfoBox .infoBox .b_con .mark{background:#f16544;color:#fff
 div.sideBangLit .bangInfoBox .infoBox .b_don{border:1px solid #3c8abd;color:#3c8abd;}
 div.sideBangLit .bangInfoBox .infoBox .b_don .mark{background:#3c8abd;color:#fff;padding:0;}
 
-div.sideBangLit .bangInfoBox .infoBox .row2{color:#919191;}
+div.sideBangLit .bangInfoBox .infoBox .row2{color:#919191;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;padding:10px 0;}
+div.sideBangLit .bangInfoBox .infoBox .row2 span{font-size:13px;}
 div.sideBangLit .bangInfoBox .infoBox .row3{color:#38393a;padding-bottom:10px;}
 div.sideBangLit .bangInfoBox .infoBox .row4{color:#38393a;}
+
+div.zzimList .contentsArea{padding-left:80px;}
 
 
 /** 諛⑹긽�꽭 **/
 div#bang-info .viewSideNav .bangInfoBox .infoBox{width:260px;}
 
 div.prodViewArea{width:100%;padding-left:110px;box-sizing:border-box;}
+div.prodViewArea #bang-productInfo{padding-bottom:100px;}
 div.prodViewArea .prodTitBox{width:814px;padding:25px 0 22px 0;color:#38393a;font-weight: bold;}
 div.prodViewArea .prodTitBoxEmpty{height:7px;}
 div.prodViewArea .viewConWrap{position:relative;width:814px;}
@@ -1142,6 +1149,9 @@ div.prodViewArea .contentBox:first-child{border-top:none;}
 div.prodViewArea .contentBox.infoBox{
 	font-size:14px;
 	padding:50px 25px;
+	border:1px solid #ddd;
+	border-top:none;
+	margin-bottom:25px;
 	}
 div.prodViewArea .imgSliderBox{
 	width:814px;
@@ -1224,7 +1234,8 @@ div.prodViewArea .sideBox1 .bangNum .num{
 	padding-left:6px;vertical-align:top;
 	line-height:17px;
 	}
-div.prodViewArea .sideBox1 .likeBox{font-size:0;margin-top:15px;}
+div.prodViewArea .sideBox1 .likeBox{font-size:0;}
+div.prodViewArea .sideBox1 .likeBox a{margin-top:10px;}
 div.prodViewArea .sideBox1 .likeBox	a.btnLike,
 div.prodViewArea .sideBox1 .likeBox .likeCntInput,
 div.prodViewArea .sideBox1 .likeBox	span.likeState{
@@ -1270,6 +1281,7 @@ div.prodViewArea .sideBox2 .bangInfo4{color:#38393a;padding-top:10px;}
 
 div.prodViewArea .sideBox3 .comInfo1{padding:0 15px;color:#2074c8;font-weight:bold;margin-bottom:10px;}
 div.prodViewArea .sideBox3 .comInfo2{padding:0 15px;color:#585858;font-size:18px;font-weight:bold;}
+div.prodViewArea .sideBox3 .comCall{padding:0 15px;}
 div.prodViewArea .sideBox3 .comInfo3{padding:0 15px;color:#585858;margin:15px 0 10px;}
 div.prodViewArea .sideBox3 a.btnShowTel{
 	display:block;width:100%;height:45px;
@@ -1472,6 +1484,16 @@ div.registConBox .btnRegistBox a{
 	}
 div.registConBox .btnRegistBox a.btnCancel{background:#585858;border:1px solid #2a2a2a;}
 div.registConBox .btnRegistBox a.btnRegistz{background:#607D8B;border:1px solid #447086;}
+div.registConBox .btnRegistBox a.btnRegistz input{
+	display:block;
+	width:100%;
+	height:50px;
+	line-height:50px;
+	text-align:center;
+	background:transparent;
+	color:#fff;
+	font-size:15px;
+	}
 
 .r_section .w_50{width:50px !important;}
 .r_section .w_60{width:60px !important;}
@@ -1599,7 +1621,7 @@ div.memberBox .memTit{font-size:35px;color:#000;padding:40px 0 15px;letter-spaci
 div.loginPopup{border-top:10px solid #59748c;}
 div.loginPopup .warning{display:block;text-align:center;}
 div.loginPopup .memLoginBox{width:325px;margin:0 auto;}
-div.loginPopup .memLoginBox ul li{padding:6px 0;font-size:0;}
+div.loginPopup .memLoginBox ul li{padding:6px 0;font-size:0;text-align:left;}
 div.loginPopup .memLoginBox ul li label{display:inline-block;font-size:13px;width:75px;text-align:left;vertical-align:middle;}
 div.loginPopup .memLoginBox ul li input{
 	display:inline-block;width:250px;height:40px;
@@ -1612,6 +1634,12 @@ div.loginPopup .memLoginBox ul li input:focus{
 	-moz-border-radius:5px;
 	border-radius:5px;
 	border:1px solid #999;
+	}
+div.loginPopup .memLoginBox ul li input[type="radio"]{
+	width:auto !important;
+	height:auto !important;
+	margin-top:0;
+	margin-right:10px;
 	}
 div.loginPopup .memLoginBox .btnLogin{
 	display:block;width:100%;height:50px;
@@ -1795,14 +1823,18 @@ div.pwFindSucBox .overtimeBox a{color:#2074c8;text-decoration:underline;}
 
 /**-- �궡 怨꾩젙 --**/
 div.myInfoArea{width:100%;padding-left:90px;box-sizing:border-box;}
+div.myInfoArea #bangData .litCdBox{border-top:1px solid #c2c2c2;}
 div.myInfoArea .myInfoWrap{padding:15px 35px;min-width:980px;max-width:1400px;}
+div.myInfoArea .myInfoWrap.searchWrap{text-align:left;}
 div.myInfoArea .myInfoTitBox{position:relative;padding:10px 5px 20px 5px;border-bottom:1px solid #bfbfbf;margin-bottom:25px;}
 div.myInfoArea .myInfoTitBox strong{color:#000;font-weight:bold;display:inline-block;padding-right:5px;}
 div.myInfoArea .myContent{padding:10px;}
 div.myContent .myInfoTit{font-size:24px;margin-bottom:22px;}
 div.myContent .myInfoTit span{display:inline-block;padding-left:15px;border-left:5px solid #607D8B;}
-div.myContent .myInfoTop{margin:40px 0;padding:0 10px;}
-div.myContent .myInfoTop span{font-size:16px;}
+div.myContent .myInfoTop,
+div#bangData .myInfoTop{margin:40px 0;padding:0 10px;}
+div.myContent .myInfoTop span,
+div#bangData .myInfoTop span{font-size:16px;}
 div.myContent .myInfoTop a.btnWithdrawl{float:right;font-size:14px;text-decoration:underline;}
 div.myInfoCon table{width:100%;border-top:2px solid #2a2a2a;}
 div.myInfoCon table tr{border-bottom:1px solid #dfdfdf;}
@@ -1857,6 +1889,56 @@ div.myInfoWrap .btnCtrl button{
 	}
 div.myInfoWrap .btnCtrl .btnCancel{background:#585858;border:1px solid #2a2a2a;}
 div.myInfoWrap .btnCtrl .btnSave{background:#607D8B;border:1px solid #447086;}
+
+
+/**-- 캘린더 --**/
+.fc-unthemed .fc-toolbar{margin-bottom:30px !important;}
+.fc-unthemed .fc-day-header{
+	padding:15px 0;
+	background:#a1a1a1;
+	border:none;
+	font-size:14px;
+	color:#fff;
+	}
+.fc-unthemed .fc-day{border:1px solid #eee !important;}
+.fc-unthemed .fc-past{
+	background:#f1f1f1;
+	}
+.fc-day-number{
+	padding:15px !important;
+	box-sizing:border-box;
+	}
+
+#popup{padding:30px 100px;text-align:center;}
+#popup p{
+	font-size:14px !important;
+	padding:5px 0;
+	text-align:left;
+	}
+#popup p.add1{font-size:20px !important;padding:0;line-height:70px !important;text-align:center;}
+#popup .del button,
+#popup button.close{
+	display: inline-block;
+    float: inherit !important;
+    width: 120px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 14px;
+    color: #fff;
+    background: #313d42;
+    opacity: 1;
+    border-radius: 5px;
+    text-shadow: none;
+    margin-top: 10px;
+	}
+#popup .del{display:inline-block;}
+#popup .del button{
+	margin-left:10px;
+	background:#eee;
+	color:#333;
+	border:none !important;
+	font-weight:bold;
+	}
 
 
 /**-- �쉶�썝�깉�눜 --**/
@@ -2050,6 +2132,14 @@ div.comuWriteWrap .btnCtrl a{
 	-moz-border-radius:3px;
 	border-radius:3px;
 	background:url(../images/bg_gradient.png) repeat-x;
+	}
+div.comuWriteWrap .btnCtrl a input{
+	display:block;
+	width:100%;
+	height:30px;
+	text-align:center;
+	line-height:30px;
+	background:transparent;
 	}
 div.comuWriteWrap textarea{
 	width:100%;
@@ -2245,6 +2335,28 @@ div.spotHover .bangcon .infoBox .row4 strong{color:#e60012;letter-spacing:0px;}
 
 /** �삤瑜몄そ �궗�씠�뱶 硫붾돱 **/
 div.sideNavRight{position:fixed;top:0;right:0;bottom:0;width:443px;background:#fff;border-left:1px solid #d3d3d3;z-index:20;}
+div.sideNavRight .sideNav1 .keyBox{position:relative;padding:10px;background:#626262;}
+div.sideNavRight .sideNav1 #keyword{
+	display:block;
+	width:100%;
+	height:40px;
+	padding:0 10px;
+	margin-right:40px;
+	}
+div.sideNavRight .sideNav1 .btnKSearch{
+	position:absolute;
+	top:10px;right:10px;
+	width:40px;
+	height:40px;
+	text-align:center;
+	background:#fff;
+	border:none;
+	}
+div.sideNavRight .sideNav1 .btnKSearch .fa-search{	
+	font-size:17px;
+	color:#555;
+	}
+div.sideNavRight .sideNav1 .searchCon{position:relative;}
 div.sideNavRight .sideNav1 .sideTop{
 	height:40px;line-height:40px;
 	color:#fff;padding:0 20px 0 40px;
@@ -2258,26 +2370,57 @@ div.sideNavRight .sideNav1 .sideTop.on {
 	background-color:#626262;
 }
 div.sideNavRight .sideNav1 .sideTop .btnShow{color:#fff;float:right;}
-div.sideNavRight .sideNav1 .sideCon{padding:10px;}
-div.sideNavRight .sideNav1 dd.section > strong{
-	display:inline-block;font-weight:bold;
-	color:#626262;padding:15px 5px;
-	width:80px;font-size:14px;
+div.sideNavRight .sideNav1 .sideCon .btnSearch{
+	display:block;
+	width:100%;
+	height:40px;
+	text-align:center;
+	line-height:40px;
+	background:#ccc;
+	margin-top:20px;
+	-webkit-transition:all 0.4s ease;
+	-moz-transition:all 0.4s ease;
+	-o-transition:all 0.4s ease;
+	transition:all 0.4s ease;
 	}
-div.sideNavRight .sideNav1 dl dd.section .pBoxTop{display:inline-block;font-size:0;}
-div.sideNavRight .sideNav1 dl dd.section select{width:100%;height:35px;min-height:35px;opacity:0;filter:alpha(opacity=0);}
-div.sideNavRight .sideNav1 dl dd.section .mid{display:inline-block;font-size:12px;line-height:35px;padding:0 3px;}
+div.sideNavRight .sideNav1 .sideCon .btnSearch:hover{background:#59748c;color:#fff;}
+div.sideNavRight .sideNav1 .sideCon{
+	padding:10px;
+	position:absolute;
+	width:100%;
+	top:40px;
+	left:0;
+	background:#fff;
+	box-sizing:border-box;
+	z-index:999;
+	border-bottom:1px solid #ddd;
+	}
+div.sideNavRight .sideNav1 dd.section > strong{
+	display:block;font-weight:bold;
+	color:#626262;padding:15px 5px;
+	font-size:14px;
+	line-height:14px;
+	}
+div.sideNavRight .sideNav1 dd.section input[type="checkbox"]{
+	margin-top:0;
+	vertical-align:top;
+	margin-right:5px;
+	}
+div.sideNavRight .sideNav1 dl dd.section .pBoxTop{display:inline-block;font-size:0;margin-left:45px;}
+div.sideNavRight .sideNav1 dl dd.section select{width:100%;height:35px;min-height:35px;padding:0 10px;font-size:14px;}
+div.sideNavRight .sideNav1 dl dd.section .mid{display:inline-block;font-size:12px;line-height:35px;padding:0 10px;}
 div.sideNavRight .sideNav1 dl dd.section .select_box{
 	position:relative;display:inline-block;
 	width:150px;height:35px;font-size:12px;
 	box-sizing:border-box;
 	}
-div.sideNavRight .sideNav1 dl dd.section .select_box .select{width:150px;border:1px solid #cfd6dd;}
+div.sideNavRight .sideNav1 dl dd.section .select_box .select{width:150px;border:1px solid #cfd6dd;font-size:14px;}
 div.sideNavRight .sideNav1 dl dd.section .select_box .select .my_value{border:none;}
 div.sideNavRight .sideNav1 .chkBox{display:inline-block;width:75px;height:17px;margin:5px 0;position:relative;}
 div.sideNavRight .sideNav1 .chkCtrl{display:inline-block;float:right;padding:15px 5px;}
 div.sideNavRight .sideNav1 .chkCtrl .chkBox{width:72px;}
 div.sideNavRight .sideNav1 .chkOpt{padding:5px 15px;box-sizing:border-box;}
+div.sideNavRight .sideNav1 .chkOpt label{margin-right:15px;font-size:14px;}
 div.sideNavRight .sideNav1 .chkBox label{
 	display:block;width:17px;height:17px;
 	text-align:left;cursor:pointer;
@@ -2319,6 +2462,29 @@ div.sideNavRight .sideNav2 .sideCon p.conTit{
 	}
 div.sideNavRight .sideNav2 .sideCon .sideBangLit{height:500px;}
 div.sideNavRight .sideNav2 ul li:hover{background:#e5f1fe;}
+div.sideNavRight .sideNav2 ul .noList{
+	width:100%;
+	height:100%;
+	text-align:center;
+	padding:120px 100px;
+	font-size: 18px;
+    font-weight: bold;
+    color: #555;
+	}
+div.sideNavRight .sideNav2 ul .noList .icon{
+	display:block;
+	width:100px;
+	height:100px;
+	border:1px solid #ddd;
+	border-radius:100px;
+	-webkit-border-radius:100px;
+	background:url(../images/no_maemul.png) no-repeat 0 0;
+	-webkit-background-size:100px 100px;
+	background-size:100px 100px;
+	margin: 0 auto;
+    margin-bottom: 20px;
+	}
+div.sideNavRight .sideNav2 ul li .infoLink{display:block;}
 div.sideNavRight .sideNav2 ul li .bangInfoBox{position:relative;border:1px solid #ddd;border-top:none;}
 div.sideNavRight .sideNav2 ul li .bangInfoBox .infoBox{float:left !important;margin-left:12px;}
 div.sideNavRight .sideNav2 ul li:first-child .bangInfoBox{border-top:1px solid #ddd;}
@@ -2492,13 +2658,39 @@ div.subwayTop .map_zoom .map_scaler .scaler_slider{
 /**-------- 諛⑸━�뒪�듃(bang/knu/yjc/zzim) �럹�씠吏� --------**/
 
 /**-- �궗�씠�뱶硫붾돱 --**/
-div.sideNavLitWrap .sideNav dd.section > strong{display:block;font-weight:bold;color:#000;padding:15px 5px;}
-
-div.sideNavLitWrap dl dd.section .select_box{position:relative;float:left;width:114px;height:32px;box-sizing:border-box;}
-div.sideNavLitWrap dl dd.section .select_box .select{
-	width:100%;height:32px;line-height:32px;
-	background:url(../images/bg_gradient.png) repeat-x;
+div.sideNavLitWrap .sideNav dd.section > strong input{
+	margin-top:0;
+	vertical-align:top;
+	margin-right:5px;
 	}
+div.sideNavLitWrap .sideNav dd.section > strong{
+	display:block;
+	font-weight:bold;
+	color:#000;
+	padding:15px 5px;
+	clear:both;
+	}
+div.sideNavLitWrap .sideNav .btnSearch{
+	display:inline-block;
+	margin:0 auto;
+	margin-top:10px;
+	}
+div.sideNavLitWrap .sideNav .btnSearch input{
+	background:#81abe5;
+	color:#fff;
+	margin-top:0;
+	line-height:36px;
+	}
+div.sideNavLitWrap .sideNav .btnWrite{margin-top:10px;}
+div.sideNavLitWrap dl dd.section .select_box{position:relative;float:left;width:114px;height:32px;box-sizing:border-box;}
+div.sideNavLitWrap dl dd.section .select_box .select,
+div.sideNavLitWrap dl dd.section .select_box select{
+	display:block;
+	width:100%;
+	height:32px;
+	line-height:32px;
+	}
+div.sideNavLitWrap dl dd.section .select_box select{padding:0 10px;}
 div.sideNavLitWrap dl dd.section .select_box .select button.my_value{
 	height:32px;line-height:32px;
 	border:1px solid #bec0c2;
@@ -2539,13 +2731,15 @@ div.sideNavLitWrap .chkBox input:checked+label{
 	}
 div.sideNavLitWrap .allChkRow label{text-align:right;padding-right:25px;box-sizing:border-box;}
 
-div.sideNavLitWrap .nav_1{padding-bottom:35px;}
+div.sideNavLitWrap .nav_1{padding-bottom:20px;text-align:center;}
 div.sideNavLitWrap .sideNav .navTit{
 	font-size: 14px;
     font-weight: bold;
     padding: 10px 5px;
+	text-align:left;
     border-bottom: 1px solid #c0c6c8;
 	}
+div.sideNavLitWrap dl{text-align:left;}
 div.sideNavLitWrap dl dd.section1 .numSearch{font-size:0;}
 div.sideNavLitWrap dl dd.section1 .numSearch input,
 div.sideNavLitWrap dl dd.section1 .numSearch a{height:35px;box-sizing:border-box;text-align:center;vertical-align:top;}
@@ -2569,6 +2763,8 @@ div.sideNavLitWrap dl dd.section3 .mid{display:inline-block;float:left;width:21p
 div.sideNavLitWrap dl dd.section3 .pBoxTop{float:left;margin-bottom:10px;}
 div.sideNavLitWrap dl dd.section4{position:relative;}
 div.sideNavLitWrap dl dd.section4 > strong{padding:25px 5px 20px 5px !important;}
+div.sideNavLitWrap dl dd.section4 .chkOpt input{margin-top:0;margin-right:5px;vertical-align:top;}
+div.sideNavLitWrap dl dd.section4 .chkOpt label{margin-right:10px;}
 div.sideNavLitWrap dl dd.section4 .chkCtrl{position:absolute;top:20px;right:0;}
 div.sideNavLitWrap dl dd.section4 .chkCtrl b{font-weight:bold;}
 
@@ -3024,6 +3220,7 @@ div.footerWrap .footerInfo .fInfoBox address{padding:2`6px 0;color:#555;letter-s
     text-align: center;
 }
 
+
 /** 2019/04/22 매물 정보 조회시 등록버튼 **/
 div.searchWrap .searchBox a.btnWrite{
 	display:block;
@@ -3046,6 +3243,8 @@ a.btnWrite{
 	-moz-border-radius:2px;
 	border-radius:2px;
 	}
+	
+	
 /** loading **/
 #loading-mask{
    position:fixed;
@@ -3068,7 +3267,7 @@ a.btnWrite{
    height:100px;
    margin-left:-50px;
    margin-top:-50px;
-}
+}	
 
 
 /****** 4월 29일 매물 삭제 노티스 버튼 */
@@ -3089,4 +3288,11 @@ div.prodViewArea .viewSideNav .btnDelNoti{
 	-webkit-border-radius:2px;
 	-moz-border-radius:2px;
 	border-radius:2px;
+	margin-top:10px;
+	vertical-align:top;
 	}
+
+
+/**-- 매물관리 --**/
+.adminUserBangTable tr.bangDel{background:#ffe3e1;}
+.adminUserBangTable tr.conDone{background:#def0ff;}
