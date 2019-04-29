@@ -285,6 +285,7 @@ public class BangController {
 		if( upProResult == 1) {
 			try {
 				String savePath = request.getSession().getServletContext().getRealPath("resources/files/bang/");
+				System.out.println(savePath);
 				File file = null;
 				String savefile = null;
 				String original_file = null;
