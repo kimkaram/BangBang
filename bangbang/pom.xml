@@ -6,30 +6,27 @@
    <artifactId>bangbang</artifactId>
    <name>bangbang</name>
    <packaging>war</packaging>
-   <version>0.0.1</version>
-   
-   <!-- 테스트  -->
+   <version>1.0.0-BUILD-SNAPSHOT</version>
    <properties>
       <java-version>1.8</java-version>
       <org.springframework-version>5.0.4.RELEASE</org.springframework-version>
       <org.aspectj-version>1.8.13</org.aspectj-version>
       <org.slf4j-version>1.7.25</org.slf4j-version>
    </properties>
-   
-<!--    <repositories>
+
+   <repositories>
       <repository>
          <id>oracle</id>
          <name>ORACLE JDBC Repository</name>
          <url>https://maven.atlassian.com/3rdparty/</url>
       </repository>
-   </repositories> -->
+   </repositories>
 
    <dependencies>
       <!-- Spring -->
       <dependency>
          <groupId>org.springframework</groupId>
-         <artifactId>spring-context-support</artifactId>
-         <!-- <artifactId>spring-context</artifactId> -->
+         <artifactId>spring-context</artifactId>
          <version>${org.springframework-version}</version>
          <exclusions>
             <!-- Exclude Commons Logging in favor of SLF4j -->
@@ -65,14 +62,6 @@
          <artifactId>cglib</artifactId>
          <version>2.2</version>
       </dependency>
-      
-  <!--     <dependency>
-         <groupId>com.oracle</groupId>
-          <artifactId>ojdbc7</artifactId>
-          <version>12.1.0.2</version>
-          <scope>system</scope>
-          <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/ojdbc7-12.1.0.2.jar</systemPath>
-      </dependency> -->
 
       <!-- Logging -->
       <dependency>
@@ -220,7 +209,7 @@
           <groupId>com.googlecode.json-simple</groupId>
           <artifactId>json-simple</artifactId>
           <version>1.1.1</version>
-      </dependency> 
+      </dependency>
       
       <!-- Jackson -->
       <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
@@ -244,21 +233,6 @@
          <version>4.7</version>
          <scope>test</scope>
       </dependency>
-
-      <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
-      <dependency>
-         <groupId>org.apache.maven.plugins</groupId>
-         <artifactId>maven-compiler-plugin</artifactId>
-         <version>3.7.0</version>
-      </dependency>
-      
-      <!-- https://mvnrepository.com/artifact/org.webjars.bower/jquery -->
-      <dependency>
-          <groupId>org.webjars.bower</groupId>
-          <artifactId>jquery</artifactId>
-          <version>3.3.1</version>
-      </dependency>
-      
       <!-- gmail -->
       <dependency>
          <groupId>javax.mail</groupId>
@@ -266,61 +240,29 @@
          <version>1.4.3</version>
       </dependency>
       
+
+      <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
+      <dependency>
+         <groupId>org.apache.maven.plugins</groupId>
+         <artifactId>maven-compiler-plugin</artifactId>
+         <version>3.7.0</version>
+      </dependency>
+
    </dependencies>
-   
-   <!-- jenkins -->
    <build>
-      <plugins>
-         <plugin>
-            <artifactId>maven-eclipse-plugin</artifactId>
-            <version>2.9</version>
-            <configuration>
-               <additionalProjectnatures>
-                  <projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
-               </additionalProjectnatures>
-               <additionalBuildcommands>
-                  <buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>
-               </additionalBuildcommands>
-               <downloadSources>true</downloadSources>
-               <downloadJavadocs>true</downloadJavadocs>
-            </configuration>
-         </plugin>
-         <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.7.0</version>
-            <configuration>
-               <source>1.8</source>
-               <target>1.8</target>
-               <compilerArgument>-Xlint:all</compilerArgument>
-               <showWarnings>true</showWarnings>
-               <showDeprecation>true</showDeprecation>
-            </configuration>
-         </plugin>
-         <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>exec-maven-plugin</artifactId>
-            <version>1.2.1</version>
-            <configuration>
-               <mainClass>org.test.int1.Main</mainClass>
-            </configuration>
-         </plugin>
-         
-         <plugin>
-           <artifactId>maven-compiler-plugin</artifactId>
-           <version>3.8.0</version>
-           <configuration>
-             <source>1.8</source>
-             <target>1.8</target>
-           </configuration>
-         </plugin>
-         <plugin>
-           <artifactId>maven-war-plugin</artifactId>
-           <version>3.2.1</version>
-         </plugin>
-         
-      </plugins>
+      <finalName>bangbang</finalName>
+     	 <plugins>
+             <plugin>
+                 <groupId>org.apache.maven.plugins</groupId>
+                 <artifactId>maven-war-plugin</artifactId>
+                  <version>2.1.1</version>
+              </plugin>
+      	 </plugins>
    </build>
+      
+      
+   
+   
 </project>
 
 
