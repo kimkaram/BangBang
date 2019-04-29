@@ -80,7 +80,7 @@
 		<div id="bang-searchForm" class="sideNavWrap sideNavLitWrap">
 			<form action="userSBang.do" name="searchBang"id="searchBang" onSubmit="return CheckForm(this)" method="post">
 			<div class="sideNav nav_1">
-				<h3 class="navTit">조건으로 검색 ${ low_deposit }  // ${high_deposit }  // ${ build_type_size }</h3>
+				<h3 class="navTit">조건으로 검색</h3>
 				<dl>
 					<dd class="section section3">
 						<strong>
