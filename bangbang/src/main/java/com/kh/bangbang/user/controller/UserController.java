@@ -6,10 +6,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -110,7 +110,7 @@ public class UserController {
 	public String userUpdateMyPage(Model model, String user_id) {		
 		User user = userService.selectUser(user_id);
 		model.addAttribute("user", user);
-		return "redirect:/adminUserList.do";
+		return "/admin/user/adminUserUpdatePage";
 	}
 	
 	@RequestMapping(value="adminUserUpdate.do", method=RequestMethod.POST)
@@ -120,7 +120,7 @@ public class UserController {
 			return "common/error";
 		}
 		
-		return "/admin/user/adminUserUpdatePage";
+		return "redirect:/adminUserList.do";
 	}
 	
 	
