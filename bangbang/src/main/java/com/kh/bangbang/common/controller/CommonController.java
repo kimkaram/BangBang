@@ -11,8 +11,8 @@ import com.kh.bangbang.common.model.vo.BaseResponse;
 @ControllerAdvice
 public class CommonController {
 	
-	@ExceptionHandler(SQLException.class)
-	public @ResponseBody BaseResponse SQLException() {
-		return new BaseResponse(false, "SQL 에러"); 
-	}
+//	@ExceptionHandler(SQLException.class)
+//	public @ResponseBody BaseResponse SQLException() {
+//		return new BaseResponse(false, "SQL 에러"); 
+//	}
 }

@@ -71,7 +71,7 @@ public class BmapController {
 	
 	// 매물번호에 일치하는 매물 정보 가져오기
 	@RequestMapping(value="marealist.do")
-	public void mapAreaListView(@RequestParam(value="pro_no") int pro_no, HttpServletResponse response) throws IOException, ParseException {	    
+	public void mapAreaListView(@RequestParam(value="pro_no") String pro_no, HttpServletResponse response) throws IOException, ParseException {	    
 		List<Bmap> malist = mservice.selectMapAreaList(pro_no);
 		//System.out.println("지도 영역 안의 리스트 : " + malist.size());
 		
@@ -81,6 +81,7 @@ public class BmapController {
 		for(Bmap bmap : malist) {
 			JSONObject addr = new JSONObject();
 			addr.put("pro_no", bmap.getPro_no());
+			addr.put("id", bmap.getId());
 			addr.put("pro_address", bmap.getPro_address());
 			addr.put("pro_content", bmap.getPro_content());
 			addr.put("con_type", bmap.getCon_type());
@@ -91,6 +92,7 @@ public class BmapController {
 			addr.put("floor", bmap.getFloor());
 			addr.put("manage_pay", bmap.getManage_pay());
 			addr.put("rename_file", bmap.getRename_file());
+			addr.put("pic_prono", bmap.getPic_prono());
 			jsonArray.add(addr);
 		}
 		
@@ -111,9 +113,8 @@ public class BmapController {
 		String high_deposit = request.getParameter("high_deposit");
 		String low_rent = request.getParameter("low_rent");
 		String high_rent = request.getParameter("high_rent");
-		String build_type = request.getParameter("build_type");
-		
-		String[] build_typeArr = build_type.split(",");
+		String[] build_type = request.getParameterValues("build_type");
+
 		
 		Map option = new HashMap();
 		option.put("low_deposit", low_deposit);
@@ -121,10 +122,11 @@ public class BmapController {
 		option.put("low_rent", low_rent);
 		option.put("high_rent", high_rent);
 		
-		for(int i = 0; i < build_typeArr.length; i++) {
-			option.put("build_type" + i, build_typeArr[i]);
+		if( build_type.length > 0) {
+			for(int i = 0; i < build_type.length; i++) {
+				option.put("count" + i, build_type[i]);
+			}
 		}
-		option.put("count", build_typeArr.length);
 		
 		List<Bmap> smlist = mservice.selectSearchList(option);
 		model.addAttribute("smlist", smlist);
@@ -150,9 +152,15 @@ public class BmapController {
 		fw.flush();
 		fw.close();
 		
-		response.setHeader("Cache-Control","no-cache"); 
-		response.setHeader("Pragma","no-cache"); 
-		response.setDateHeader("Expires",0); 
+		model.addAttribute("smlist", smlist);
+		model.addAttribute("low_deposit",low_deposit);
+		model.addAttribute("high_deposit",high_deposit);
+		model.addAttribute("low_rent",low_rent);
+		model.addAttribute("high_rent",high_rent);
+		model.addAttribute("btype",build_type);
+		for( int i = 0 ; i < build_type.length; i++) {
+			model.addAttribute("build_type"+i, build_type[i]);
+		}
 		
 		return "home";
 	}

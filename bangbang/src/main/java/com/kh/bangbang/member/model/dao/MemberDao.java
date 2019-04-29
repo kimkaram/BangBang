@@ -21,9 +21,10 @@ public class MemberDao {
 		
 //		if(!member.getPwd().equals(loginMember.getPwd()))
 //			loginMember = null;
-		
-		if(!bcryptPasswordEncoder.matches(member.getPwd(), loginMember.getPwd())) {
-			loginMember = null;
+		if (loginMember != null) {
+			if(!bcryptPasswordEncoder.matches(member.getPwd(), loginMember.getPwd())) {
+				loginMember = null;
+			}
 		}
 		
 		return loginMember;

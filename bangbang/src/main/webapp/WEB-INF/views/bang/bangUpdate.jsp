@@ -757,7 +757,7 @@
 								<c:url var="adminBack" value="binfo.do">
 									<c:param name="userType" value="admin"/>
 									<c:param name="pro_no" value="${ Bang.pro_no }"/>
-									<c:param name="id" value="${ sessionScope.loginMember.id }"/>
+									<c:param name="id" value="${ Bang.id }"/>
 								</c:url>
 							<a href="${ adminBack }"  class="btnCancel">취소</a>
 							<a href="javascript:void(0);" class="btnRegistz"><input type="submit" value="수정하기"/></a>

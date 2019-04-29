@@ -9,7 +9,7 @@ public interface BmapService {
 
 	List<Bmap> selectMapList();
 
-	List<Bmap> selectMapAreaList(int pro_no);
+	List<Bmap> selectMapAreaList(String pro_no);
 
 	List<Bmap> selectSearchList(Map option);
 

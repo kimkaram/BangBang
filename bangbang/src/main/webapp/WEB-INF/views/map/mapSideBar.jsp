@@ -47,8 +47,7 @@
 		   						    complete: function(){
 		   						    	$('#loading-mask').fadeOut(500);
 		   						    },
-		   						 success: function(data) {
-	   					    			//console.log("값 넘기기 성공했스요!"); //성공시 console에 띄움
+		   							success: function(data) {
 	   					    			var jsonStr = JSON.stringify(data);
 	   									var con = JSON.parse(jsonStr);
 	   									
@@ -74,44 +73,36 @@
 												rent = "/" + rent;
 											}
 											
-											// 이미지 없으면
-											var imageFile = con.list[i].rename_file;
-											var fileRoot;
-											if(imageFile.split('.', 1) >= 0 || imageFile.split('.', 1) <= 99999){
-												fileRoot = "./resources/files/bang/" + imageFile;
-											} else{
-												fileRoot = "./resources/images/no_image.jpg";
-											}
-											
 	   										$(".bangUl").html($(".bangUl").html() + (
 	   												"<li class='curPoint'>" +
 	   														"<input type='hidden' value='" + con.list[i].pro_no + "' id='litNo' />" +
 	   														"<input type='hidden' value='" + coords.getLat() + "' id='mLat' />" +
 															"<input type='hidden' value='" + coords.getLng() + "' id='mLng' />" +
-	   														"<div class='bangInfoBox'>" +
-	   															"<div class='imgBox left'>" +
-	   															"<img src='" + fileRoot + "' onError='javascript:this.src=\"./resources/images/no_image.jpg\"' alt='방이미지'>" +
-	   													        "</div>" +
-	   													        "<div class='infoBox right'>" +
-	   												            "<dl>" +
-	   												                "<dd class='infoRow row1'>" +
-	   												            		"<span class='p_Way " + ctClass + "'>" + conType + "</span>" +
-	   												                    "<span class='price nbgFont'>"+ con.list[i].deposit + rent + "</span>" +
-	   												                "</dd>" +
-	   												               	"<dd class='infoRow row2'><span>" + con.list[i].pro_content + "</span></dd>" +
-	   												                "<dd class='infoRow row3'><span>"
-	   												                	+ con.list[i].build_type + " / "
-	   												                	+ "방" + con.list[i].room_count + "개 / "
-	   												                	+ con.list[i].floor + "층 / " 
-	   												                	+ "관리비 " + con.list[i].manage_pay + "만원" +
-	   												                "</span></dd>" +
-	   												            "</dl>" +
-	   												        "</div>" +
+															"<a href='binfo.do?userType=bmaplist&pro_no=" + con.list[i].pro_no + "&id=" + con.list[i].id + "'target='_blank' class='infoLink'>" +
+		   														"<div class='bangInfoBox'>" +
+		   															"<div class='imgBox left'>" +
+		   															"<img src='./resources/files/bang/" + con.list[i].rename_file + "' onError='javascript:this.src=\"./resources/images/no_image.jpg\"' alt='방이미지'>" +
+		   													        "</div>" +
+		   													        "<div class='infoBox right'>" +
+		   												            "<dl>" +
+		   												                "<dd class='infoRow row1'>" +
+		   												            		"<span class='p_Way " + ctClass + "'>" + conType + "</span>" +
+		   												                    "<span class='price nbgFont'>"+ con.list[i].deposit + rent + "</span>" +
+		   												                "</dd>" +
+		   												               	"<dd class='infoRow row2'><span>" + con.list[i].pro_content + "</span></dd>" +
+		   												                "<dd class='infoRow row3'><span>"
+		   												                	+ con.list[i].build_type + " / "
+		   												                	+ "방" + con.list[i].room_count + "개 / "
+		   												                	+ con.list[i].floor + "층 / " 
+		   												                	+ "관리비 " + con.list[i].manage_pay + "만원" +
+		   												                "</span></dd>" +
+		   												            "</dl>" +
+		   												        "</div>" +
+	   												        "</a>" +
 	   												        "<div class='clr'></div>" +
 	   												    "</div>" +
 	   												"</li>"
 	   										));
-	   										
 										}
 										$("#mCount").html($(".bangUl li").length);
 										
@@ -221,44 +212,38 @@
 		   											} else {
 		   												rent = "/" + rent;
 		   											}
-		   											
-		   											// 이미지 없으면
-													var imageFile = con.list[i].rename_file;
-													var fileRoot;
-													if(imageFile.split('.', 1) >= 0 || imageFile.split('.', 1) <= 99999){
-														fileRoot = "./resources/files/bang/" + imageFile;
-													} else {
-														fileRoot = "./resources/images/no_image.jpg";
-													}
-		   											
+													
 			   										$(".bangUl").html($(".bangUl").html() + (
 			   												"<li class='curPoint'>" +
 			   														"<input type='hidden' value='" + con.list[i].pro_no + "' id='litNo' />" +
 			   														"<input type='hidden' value='" + coords.getLat() + "' id='mLat' />" +
-			   														"<input type='hidden' value='" + coords.getLng() + "' id='mLng' />" +
-			   														"<div class='bangInfoBox'>" +
-			   															"<div class='imgBox left'>" +
-			   																"<img src='" + fileRoot + "' onError='javascript:this.src=\"./resources/images/no_image.jpg\"' alt='방이미지'>" +
-			   													        "</div>" +
-			   													        "<div class='infoBox right'>" +
-			   												            "<dl>" +
-			   												                "<dd class='infoRow row1'>" +
-			   												            		"<span class='p_Way " + ctClass + "'>" + conType + "</span>" +
-			   												                    "<span class='price nbgFont'>"+ con.list[i].deposit + rent + "</span>" +
-			   												                "</dd>" +
-			   												               	"<dd class='infoRow row2'><span>" + con.list[i].pro_content + "</span></dd>" +
-			   												                "<dd class='infoRow row3'><span>"
-			   												                	+ con.list[i].build_type + " / "
-			   												                	+ "방" + con.list[i].room_count + "개 / "
-			   												                	+ con.list[i].floor + "층 / " 
-			   												                	+ "관리비 " + con.list[i].manage_pay + "만원" + 
-			   												                "</span></dd>" +
-			   												            "</dl>" +
-			   												        "</div>" +
+																	"<input type='hidden' value='" + coords.getLng() + "' id='mLng' />" +
+																	"<a href='binfo.do?userType=bmaplist&pro_no=" + con.list[i].pro_no + "&id=" + con.list[i].id + "'target='_blank' class='infoLink'>" +
+				   														"<div class='bangInfoBox'>" +
+				   															"<div class='imgBox left'>" +
+				   															"<img src='./resources/files/bang/" + con.list[i].rename_file + "' onError='javascript:this.src=\"./resources/images/no_image.jpg\"' alt='방이미지'>" +
+				   													        "</div>" +
+				   													        "<div class='infoBox right'>" +
+				   												            "<dl>" +
+				   												                "<dd class='infoRow row1'>" +
+				   												            		"<span class='p_Way " + ctClass + "'>" + conType + "</span>" +
+				   												                    "<span class='price nbgFont'>"+ con.list[i].deposit + rent + "</span>" +
+				   												                "</dd>" +
+				   												               	"<dd class='infoRow row2'><span>" + con.list[i].pro_content + "</span></dd>" +
+				   												                "<dd class='infoRow row3'><span>"
+				   												                	+ con.list[i].build_type + " / "
+				   												                	+ "방" + con.list[i].room_count + "개 / "
+				   												                	+ con.list[i].floor + "층 / " 
+				   												                	+ "관리비 " + con.list[i].manage_pay + "만원" +
+				   												                "</span></dd>" +
+				   												            "</dl>" +
+				   												        "</div>" +
+			   												        "</a>" +
 			   												        "<div class='clr'></div>" +
 			   												    "</div>" +
 			   												"</li>"
-			   										));
+				   										));
+
 		   										}
 		   										$("#mCount").html($(".bangUl li").length);
 		   										
@@ -315,17 +300,15 @@
 		        	}
 		        }
 		    });
-		    
+	</script>
+	<script>
 		    // 장소 검색 객체를 생성합니다
 		    var ps = new daum.maps.services.Places(); 
-			
-			// 키워드로 장소를 검색합니다
-			searchPlaces();
 			
 			// 키워드 검색을 요청하는 함수입니다
 			function searchPlaces() {
 			
-			    var keyword = document.getElementById('keyword').value;
+				var keyword = document.getElementById('keyword').value;
 			
 			    if (!keyword.replace(/^\s+|\s+$/g, '')) {
 			        alert('키워드를 입력해주세요!');
@@ -359,7 +342,8 @@
 			
 			    }
 			}
-			
+	</script>
+	<script>
 			//보증금
 			function changedeposit(a){
 				var high1 = ["500","1000","5000","10000","20000","30000","50000"];
@@ -435,7 +419,7 @@
 				</div>
 
 				<form onsubmit="searchPlaces(); return false;">
-		           <input type="text" value="서울대 입구역" id="keyword" size="15"> 
+		           <input type="text" value="2호선 서울대입구역" id="keyword" size="15" placeholder="주소명, 건물명, 지하철역 이름 등으로 검색해 보세요" /> 
 		           <button type="submit">검색하기</button> 
 		        </form>
 				<!-- name="searchMap" id="searchMap" -->
@@ -451,7 +435,7 @@
 								<div class="pBoxTop">
 									<div class="select_box pBox1">
 										<div class="select" >
-			                                <select name="low_deposit" id="low_deposit"  name="low_deposit" onchange="changedeposit(this);" class="a_list region" title="select sDepositSt">
+			                                <select name="low_deposit" id="low_deposit"  name="low_deposit" onchange="changedeposit(this);" class="a_list region" title="select sDepositSt" required>
 			                                	<option value="0">0</option>
 			                                	<option value="500">500</option>
 			                                    <option value="1000">1,000</option>
@@ -460,20 +444,19 @@
 			                                </select>
 										</div>
 										<script type="text/javascript">
-											
+											$("#low_deposit").val("${ low_deposit }");
 										</script>
 									</div>
-									
 								
 									<span class="mid">~</span>
 									<div class="select_box pBox2">
 										<div class="select">
-				                            <select name="high_deposit" id="high_deposit" name="high_deposit" class="a_list region" title="select sDepositSt">
+				                            <select name="high_deposit" id="high_deposit" name="high_deposit" class="a_list region" title="select sDepositSt" required>
 				                            	<option value=""></option>
 			                                </select>
 										</div>
 										<script type="text/javascript">
-											
+											$("#high_deposit").val("${ high_deposit }");
 										</script>
 									</div>
 								</div>
@@ -487,7 +470,7 @@
 								<div class="pBoxTop">
 									<div class="select_box pBox1">
 										<div class="select">
-			                                <select name="low_rent" id="low_rent" onchange="changeRent(this);" class="a_list region" title="select sRentSt">
+			                                <select name="low_rent" id="low_rent" onchange="changeRent(this);" class="a_list region" title="select sRentSt" required>
 			                                	<option value="0">0</option>
 			                                	<option value="10">10</option>
 			                                    <option value="30">30</option>
@@ -496,18 +479,18 @@
 			                                </select>
 										</div>
 										<script type="text/javascript">
-											
+											$("#low_rent").val(${ low_rent });
 										</script>
 									</div>
 									<span class="mid">~</span>
 									<div class="select_box pBox2">
 										<div class="select">
-				                             <select name="high_rent" id="high_rent" class="a_list region" title="select sRentSt">
+				                             <select name="high_rent" id="high_rent" class="a_list region" title="select sRentSt" required>
 				                             	<option value=""></option>
 			                                 </select>
 										</div>
 										<script type="text/javascript">
-											
+											$("#high_rent").val("${ high_rent }");
 										</script>
 									</div>
 								</div>
@@ -515,13 +498,19 @@
 							<dd class="section section3">
 								<strong>* 선택사항</strong>
 								<div class="chkOpt">
-		                            <input type="checkbox" id="opt1" name="build_type" value="오피스텔" class="chk" />
+		                            <c:forEach items="${ btype }" var="btype">
+										<c:if test="${ btype eq '오피스텔'}"><c:set var="bty1" value="${ btype }"/></c:if>
+										<c:if test="${ btype eq '아파트' }"><c:set var="bty2" value="${ btype }"/></c:if>
+										<c:if test="${ btype eq '빌라' }"><c:set var="bty3" value="${ btype }"/></c:if>
+										<c:if test="${ btype eq '주택' }"><c:set var="bty4" value="${ btype }"/></c:if>
+									</c:forEach>
+							 		<input type="checkbox" id="opt1" name="build_type" value="오피스텔" <c:if test="${ !empty bty1 }">checked </c:if>class="chk"/>
 									<label for="opt1">오피스텔</label>
-		                            <input type="checkbox" id="opt2" name="build_type" value="아파트" class="chk"/>
+	                            	<input type="checkbox" id="opt2" name="build_type" value="아파트" <c:if test="${ !empty bty2 }">checked </c:if>class="chk"/>
 									<label for="opt2">아파트</label>
-		                            <input type="checkbox" id="opt3" name="build_type" value="빌라" class="chk"/>
+	                            	<input type="checkbox" id="opt3" name="build_type" value="빌라" <c:if test="${ !empty bty3 }">checked </c:if>class="chk"/>
 									<label for="opt3">빌라</label>
-		                            <input type="checkbox" id="opt4" name="build_type" value="주택" class="chk"/>
+	                            	<input type="checkbox" id="opt4" name="build_type" value="주택" <c:if test="${ !empty bty4 }">checked </c:if>class="chk"/>
 									<label for="opt4">주택</label>
 								</div>
 							</dd>

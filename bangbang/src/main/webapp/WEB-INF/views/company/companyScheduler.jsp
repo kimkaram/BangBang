@@ -175,10 +175,6 @@
 	        	//날짜 유효성 검사
 	        	var date = new Date(year, month, day);
 	        	var date2 = year + month + day;
-	        	console.log(date2);
-	        	
-	        	console.log("day=" + date);
-	        	console.log("오=" + today);
 	        	
 	        	if(date - today > 0 && weekday != "일요일"){
 					$('#respopup').bPopup({

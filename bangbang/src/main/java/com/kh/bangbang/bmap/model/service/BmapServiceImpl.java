@@ -22,7 +22,7 @@ public class BmapServiceImpl implements BmapService {
 	}
 
 	@Override
-	public List<Bmap> selectMapAreaList(int pro_no) {
+	public List<Bmap> selectMapAreaList(String pro_no) {
 		return BmapDao.selectMapAreaList(pro_no);
 	}
 

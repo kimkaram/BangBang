@@ -55,7 +55,8 @@ public class SendMail {
 			// 이메일 제목
 			msg.setSubject("BangBang 비밀번호 재설정 안내 메일");
 			// 이메일 내용
-			msg.setText("<p>변경된 비밀번호입니다.</p><p>아래의 비밀번호로 다시 로그인 해주세요.</p><p><b>임시 비밀번호 : " + uuid + "</b></p><p>로그인 후 새로운 비밀번호로 변경하시길 바랍니다.</p>", "UTF-8");
+			msg.setText("<p>변경된 비밀번호입니다.</p><p>아래의 비밀번호로 다시 로그인 해주세요.</p><p><b>임시 비밀번호 : " + uuid +
+					    "</b></p><p>로그인 후 새로운 비밀번호로 변경하시길 바랍니다.</p>", "UTF-8");
 			// 이메일 헤더
 			msg.setHeader("content-Type", "text/html");
 

@@ -9,14 +9,14 @@
 	</head>
 	<body>
 		<div id="admin-header">
-			<a href="main.do"><h1><strong>BANG BANG</strong></h1>
+			<a href="/bangbang"><h1><strong>BANG BANG</strong></h1></a>
 		</div>
 		
 		<div id="bangData" class="container">
 			<div class="topTabBox">
 				<ul>
 					<li ><a href="adminUserList.do"><span>회원 관리</span></a></li>
-					<li><a href="selectAllCompany.do"><span>업체 관리</span></a></li>
+					<li><a href="adminComList.do"><span>업체 관리</span></a></li>
 					<li class="on"><a href="adminblist.do"><span>방 매물 관리</span></a></li>
 					<li><a href="adminNlist.do"><span>공지 관리</span></a></li>
 					<li><a href="adminQNAlist.do"><span>Q&A 관리</span></a></li>
@@ -72,6 +72,7 @@
 				<c:url var="binfo" value="binfo.do">
 					<c:param name="pro_no" value="${ Bang.pro_no }" />
 					<c:param name="id" value="${ Bang.id }"/>
+					<c:param name="userType" value="admin"/>
 				</c:url>
 					<tr>
 						<td>
@@ -106,9 +107,11 @@
 						<c:url var="bupView" value="bupdateView.do">
 							<c:param name="pro_no" value="${ Bang.pro_no }"/>
 							<c:param name="id" value="${ Bang.id }"/>
+							<c:param name="userType" value="admin"/>
 						</c:url>
 						<c:url var="bdel" value="adminBdel.do">
 							<c:param name="pro_no" value="${ Bang.pro_no }"/>
+							<c:param name="userType" value="admin"/>
 						</c:url>
 							<c:if test="${ Bang.pro_del eq 'N' }">
 								<a href="${ bupView }">수정</a>

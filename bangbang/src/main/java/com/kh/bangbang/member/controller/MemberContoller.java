@@ -80,9 +80,12 @@ public class MemberContoller {
 				return "home";
 			}else if(loginMember.getState().equals("제재")) {
 		        model.addAttribute("msg", "제재 조치되어 로그인이 제한됩니다.");
-				status.setComplete();
+		        status.setComplete();
+			}else {
+		        model.addAttribute("msg", "일치하는 회원정보가 없습니다. 아이디 혹은 비밀번호를 확인해주세요.");
+		        status.setComplete();
 			}
-		}else {
+		}else if (loginMember == null){
 	        model.addAttribute("msg", "일치하는 회원정보가 없습니다. 아이디 혹은 비밀번호를 확인해주세요.");
 			status.setComplete();
 		}
@@ -230,7 +233,7 @@ public class MemberContoller {
 		}	
     }
 	
-	@RequestMapping("adminComDelte.do")
+	@RequestMapping("adminComDelete.do")
     public String adminComDelte(Model model, String id) {	
 		if(memberService.adminUserDelte(id) == 1) {
 			List<Company> companyList = companyService.selectAllCompany();
@@ -241,7 +244,7 @@ public class MemberContoller {
 		}	
     }
 	
-	@RequestMapping("adminComDelteUndo.do")
+	@RequestMapping("adminComDeleteUndo.do")
     public String adminComDelteUndo(Model model, String id) {	
 		if(memberService.adminUserDelteUndo(id) == 1) {
 			List<Company> companyList = companyService.selectAllCompany();

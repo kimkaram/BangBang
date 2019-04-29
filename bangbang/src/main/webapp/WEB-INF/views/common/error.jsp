@@ -15,7 +15,7 @@
 					<p>홈페이지에 오류가 발생했습니다.</p>
 					<p>신속히 복구하겠습니다.</p>
 					<p>BANG BANG을 이용해주셔서 감사합니다.</p>
-					<a href="bmap.do" class="btnOk trans-300">메인 페이지로 이동</a>
+					<a href="main.do" class="btnOk trans-300">메인 페이지로 이동</a>
 				</div>
 			</div>
 		</div>

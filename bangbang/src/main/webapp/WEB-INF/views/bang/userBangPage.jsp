@@ -69,36 +69,40 @@
 							<td class="tModify"><a href="${ binfo  }">보기</a></td>
 						</c:if>
 						<c:if test="${ Bang.pro_del eq 'Y' || Bang.contract_yn eq 'Y'}">
-							<td class="tModify"></td>
+							<td ><p></p></td>
 						</c:if>
 						<td>
 							<p>${ Bang.pro_del }</p>
 						</td>
-						<td>
-							<c:if test="${ Bang.pro_del eq 'Y'}">
+					<c:if test="${ Bang.pro_del eq 'Y'}">
+						<td style="color:red;">
 							${ Bang.del_date }
-							</c:if>
 						</td>
-							<c:if test="${ Bang.contract_yn eq 'N' && Bang.pro_del eq 'N'}">
-								<c:url var="contract_y" value="contractBang.do">
-									<c:param name="pro_no" value="${ Bang.pro_no }"/>
-									<c:param name="userType" value="${ userType }"/>
-									<c:param name="id" value="${ Bang.id }"/>
-								</c:url>
-								<td class="tModify">
-									<a href="${ contract_y }">계약완료</a>
-								</td>
-							</c:if>
-							<c:if test="${ Bang.contract_yn eq 'Y' }">
-							<td>
-								<p>계약완료</p>
-							</td>
+					</c:if>
+					<c:if test="${ Bang.pro_del eq 'N'}">
+						<td>
+							
+						</td>
+					</c:if>
+					<c:if test="${ Bang.contract_yn eq 'N' && Bang.pro_del eq 'N'}">
+						<c:url var="contract_y" value="contractBang.do">
+							<c:param name="pro_no" value="${ Bang.pro_no }"/>
+							<c:param name="userType" value="${ userType }"/>
+							<c:param name="id" value="${ Bang.id }"/>
+						</c:url>
+						<td class="tModify">
+							<a href="${ contract_y }">계약완료</a>
+						</td>
+					</c:if>
+					<c:if test="${ Bang.contract_yn eq 'Y' }">
+						<td>
+						</td>
 							</c:if>
 							<c:if test="${ Bang.pro_del eq 'Y' }">
 							<td>
 							</td>
 							</c:if>
-						<td class="tModify">
+						
 							<c:url var="bupView" value="bupdateView.do">
 								<c:param name="pro_no" value="${ Bang.pro_no }" />
 								<c:param name="id" value="${ Bang.id }" />
@@ -112,11 +116,20 @@
 							</c:url>
 							<c:if test="${ Bang.pro_del eq 'N' }">
 								<c:if test="${ Bang.contract_yn eq 'N' }">
+								<td class="tModify">
 									<a href="${ bupView }">수정</a>
 									<a href="${ bdel }">삭제</a>
+								</td>
 								</c:if>
 							</c:if>
-							</td>
+							<c:if test="${ Bang.pro_del eq 'Y' }">
+								<td style="color:red;">
+								<p>삭제<br>게시글</p></td>
+							</c:if>
+							<c:if test="${ Bang.contract_yn eq 'Y' }">
+								<td style="color:blue;"><p>계약완료<br>게시글</p></td>
+							</c:if>
+							
 
 					</tr>
 				</c:forEach>

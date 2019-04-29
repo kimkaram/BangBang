@@ -185,7 +185,7 @@
 					</dd>
 				</dl>
 					<br><br>
-					<a href="#" class="btnSearch"><input class="btnSearch" type="submit" value="조회"></a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+					<input class="btnSearch11" type="submit" value="조회">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 					<c:url var="bwrite" value="bwrite.do">
 					</c:url>
 					<c:if test="${ !empty sessionScope.loginMember}">

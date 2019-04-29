@@ -7,16 +7,18 @@
 		<meta charset="UTF-8">
       <script type="text/javascript">
         $(function(){
+        	
           if(${sessionScope.loginMember.type eq '업체' || sessionScope.loginMember.type eq '개인'}){
-            $(".myNavBox").css("height", "100px");
+            $(".myNavBox").css("height", "120px");
           }
         });
+       
       </script>
 	</head>
 	<body>
 		<div class="adminHeader">
 		    <div class="global_top">
-				<h1 class="logo"><a href="">BANG GRAE</a></h1>
+				<h1 class="logo"><a href="/bangbang"></a></h1>
 				<div class="myNavBox">
 				<c:if test="${!empty sessionScope.loginMember }">
 					<a href="logout.do" ><span>로그아웃</span></a>
@@ -45,7 +47,7 @@
 				</c:if>
 				</div>
 		        <ul class="global_top_menu">
-					<li class="navTab navTab_1"><a href="">MAP</a></li>
+					<li class="navTab navTab_1"><a href="/bangbang">MAP</a></li>
 					<li class="navTab navTab_2"><a href="blist.do">BANG</a></li>
 					<c:url var="booklist" value="bookmarklist.do">
 						<c:param name="id" value="${sessionScope.loginMember.id }"/>
@@ -56,7 +58,7 @@
 					<c:if test="${ empty sessionScope.loginMember || sessionScope.loginMember.type eq '업체'}">
 					</c:if>
 					<li class="navTab navTab_6"><a href="nlist.do">NOTICE</a></li>
-					<c:if test="${!empty sessionScope.loginMember }">
+					<c:if test="${!empty sessionScope.loginMember && sessionScope.loginMember.id ne 'admin'}">
 					 <c:url var="qnalist" value="qnalist.do">
 						<c:param name="id" value="${sessionScope.loginMember.id }"/>
 					 </c:url>

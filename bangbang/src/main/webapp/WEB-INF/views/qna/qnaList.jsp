@@ -37,7 +37,9 @@
 				<div class="comuWrap qnaWrap">
 					<div class="comuTitBox">
 						<strong>Q&A</strong>
-						<a href="javascript:void(0);" onclick="javascript:location.href='qnawrite.do';" class="btnWrite"><span>질문 작성하기</span></a>
+						<c:if test="${  sessionScope.loginMember.id ne 'admin'}">
+	                  		<a href="qnawrite.do" class="btnWrite"><span>질문 작성하기</span></a>
+	                  	</c:if>
 						<div class="clr"></div>
 					</div>
 	                <div class="writeArea" style="display:none;"></div>

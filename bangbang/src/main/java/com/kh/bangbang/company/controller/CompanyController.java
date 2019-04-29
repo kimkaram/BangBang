@@ -92,7 +92,7 @@ public class CompanyController {
 	
 	//관리자 페이지
 	
-	@RequestMapping("selectAllCompany.do")
+	@RequestMapping("adminComList.do")
 	public String selectAllCompany(Model model) {
 		List<Company> companyList = companyService.selectAllCompany();
 		model.addAttribute("companyList", companyList);

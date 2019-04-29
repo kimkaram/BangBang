@@ -19,14 +19,14 @@
 	</script>
 	<body>
 		<div id="admin-header">
-			<a href="main.do"><h1><strong>BANG BANG</strong></h1></a>
+			<a href="/bangbang"><h1><strong>BANG BANG</strong></h1></a>
 		</div>
 		
 		<div id="bangData" class="container">
 			<div class="topTabBox">
 				<ul>	
 					<li><a href="adminUserList.do"><span>회원 관리</span></a></li>
-					<li><a href="selectAllCompany.do"><span>업체 관리</span></a></li>
+					<li><a href="adminComList.do"><span>업체 관리</span></a></li>
 					<li><a href="adminblist.do"><span>방 매물 관리</span></a></li>
 					<li><a href="adminNlist.do"><span>공지 관리</span></a></li>
 					<li class="on"><a href="adminQNAlist.do"><span>Q&A 관리</span></a></li>

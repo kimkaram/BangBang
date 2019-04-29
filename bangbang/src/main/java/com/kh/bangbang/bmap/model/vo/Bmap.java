@@ -31,6 +31,7 @@ public class Bmap implements Serializable {
 	private String pro_del; //삭제여부
 	private Date del_date; //삭제일
 	private String rename_file; // 이미지 rename 파일
+	private String pic_prono; // 이미지 prono 번호
 	
 	public Bmap() {}
 	
@@ -38,11 +39,12 @@ public class Bmap implements Serializable {
 		this.pro_no = pro_no;
 		this.pro_address = pro_address;
 	}
-	
+
 	public Bmap(int pro_no, String id, String pro_address, String pro_detail, int deposit, int rent, int manage_pay,
 			int loan, Date move_date, int room_count, int bath_count, int supply_area, int real_area, int floor,
 			String room_type, String direction, String door_type, Date build_date, String build_type, String con_type,
-			String pro_content, String contract_yn, String pro_del, Date del_date, String rename_file) {
+			String pro_content, String contract_yn, String pro_del, Date del_date, String rename_file,
+			String pic_prono) {
 		super();
 		this.pro_no = pro_no;
 		this.id = id;
@@ -69,6 +71,7 @@ public class Bmap implements Serializable {
 		this.pro_del = pro_del;
 		this.del_date = del_date;
 		this.rename_file = rename_file;
+		this.pic_prono = pic_prono;
 	}
 
 	public int getPro_no() {
@@ -262,7 +265,6 @@ public class Bmap implements Serializable {
 	public void setDel_date(Date del_date) {
 		this.del_date = del_date;
 	}
-	
 
 	public String getRename_file() {
 		return rename_file;
@@ -270,6 +272,18 @@ public class Bmap implements Serializable {
 
 	public void setRename_file(String rename_file) {
 		this.rename_file = rename_file;
+	}
+
+	public String getPic_prono() {
+		return pic_prono;
+	}
+
+	public void setPic_prono(String pic_prono) {
+		this.pic_prono = pic_prono;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 	@Override
@@ -281,9 +295,8 @@ public class Bmap implements Serializable {
 				+ room_type + ", direction=" + direction + ", door_type=" + door_type + ", build_date=" + build_date
 				+ ", build_type=" + build_type + ", con_type=" + con_type + ", pro_content=" + pro_content
 				+ ", contract_yn=" + contract_yn + ", pro_del=" + pro_del + ", del_date=" + del_date + ", rename_file="
-				+ rename_file + "]";
+				+ rename_file + ", pic_prono=" + pic_prono + "]";
 	}
-
 	
 	
 }

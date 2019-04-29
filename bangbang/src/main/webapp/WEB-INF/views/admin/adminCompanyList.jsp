@@ -92,17 +92,18 @@
 	</head>
 	<body>
 		<div id="admin-header">
-			<h1><strong>BANG BANG</strong></h1>
+			<a href="/bangbang"><h1><strong>BANG BANG</strong></h1></a>
 		</div>
 		
 		<div id="bangData" class="container">
 			<div class="topTabBox">
-				<ul>
-					<li class="on"><a href="selectAllCompany.do"><span>업체 관리</span></a></li>
-					<li ><a href="#;"><span>회원 관리</span></a></li>
-					<li><a href="#;"><span>방 매물 관리</span></a></li>
-					<li><a href="#;"><span>게시판 관리</span></a></li>
-				</ul>
+					<ul>
+					<li ><a href="adminUserList.do"><span>회원 관리</span></a></li>
+					<li class="on"><a href="adminComList.do"><span>업체 관리</span></a></li>
+					<li><a href="adminblist.do"><span>방 매물 관리</span></a></li>
+					<li><a href="adminNlist.do"><span>공지 관리</span></a></li>
+					<li><a href="adminQNAlist.do"><span>Q&A 관리</span></a></li>
+					</ul>
 			</div>
 			
 			<div class="searchWrap">
@@ -178,14 +179,22 @@
 										<p>${company.state}</p>
 									</td>
 									<td class="tModify">
-									<c:url var="updateCompanyAdminPage" value="updateCompanyAdminPage.do">
-										<c:param name="com_id" value="${company.com_id}" />
-									</c:url>
-									<c:url var="adminUserDelte" value="adminUserDelte.do">
-										<c:param name="id" value="${company.com_id}" />
-									</c:url>
-										<a href="${updateCompanyAdminPage}">수정</a>
-										<a href="${adminUserDelte}">제재</a>
+										<c:url var="updateCompanyAdminPage" value="updateCompanyAdminPage.do">
+											<c:param name="com_id" value="${company.com_id}" />
+										</c:url>
+										<c:url var="adminComDelete" value="adminComDelete.do">
+											<c:param name="id" value="${company.com_id}" />
+										</c:url>
+										<c:url var="adminComDeleteUndo" value="adminComDeleteUndo.do">
+											<c:param name="id" value="${company.com_id}" />
+										</c:url>
+										<a href="${updateCompanyAdminPage}" >수정</a>
+										<c:if test="${company.state eq '일반' }" >
+										<a href="${adminComDelete}" >제재</a>
+										</c:if>
+										<c:if test="${company.state eq '제재' }" >
+										<a href="${adminComDeleteUndo}" >제재 해제</a>
+										</c:if>
 									</td>
 								</tr>
 							</c:forEach>

@@ -21,7 +21,7 @@ public class BmapDao {
 		
 	}
 
-	public List<Bmap> selectMapAreaList(int pro_no) {
+	public List<Bmap> selectMapAreaList(String pro_no) {
 		// 지도 영역 내 매물 리스트 불러오기
 		return session.selectList("bmapMapper.bmapAreaList", pro_no);
 	}

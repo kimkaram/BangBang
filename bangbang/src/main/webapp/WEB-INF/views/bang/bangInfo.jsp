@@ -559,12 +559,14 @@
 												<a href="javascript:void(0);" onclick="addBookmark();" id="aLike" name="aLike" 
 												class="btnLike trans-300"<c:if test="${ bcheck eq 1 }"> style="display:none" </c:if>><span>찜하기</span></a>
 												<a href="javascript:void(0);" onclick="delBookmark();" id="dLike" name="dLike" 
-												class="btnLike trans-300" <c:if test="${ bcheck ne 1 }"> style="display:none" </c:if>><span>찜하기 삭제</span></a>
+												class="btnLike trans-300" <c:if test="${ bcheck ne 1 }"> style="display:none" </c:if>><span>찜삭제</span></a>
+												<c:if test="${ userType ne 'usermy' }">
 												<c:if test="${ !empty company }">
 		                                	 		<a href="companySchedulerPage.do?id=${ Bang.id }&no=${ Bang.pro_no }" class="btnLike trans-300"><span style="margin-left: 14px;">방문 예약</span></a>
 				                             	 </c:if>
 					                              <c:if test="${ !empty user }">
 					                                 <a href="userSchedulerPage.do?id=${ Bang.id }&no=${ Bang.pro_no }" class="btnLike trans-300"><span style="margin-left: 14px;">방문 예약</span></a>
+					                              </c:if>
 					                              </c:if>
 										</c:if>
 		                              </c:if>
@@ -662,14 +664,14 @@
 							</li>
 							</c:if>
 							
-							<li class="sideBox sideBox4">
+							<!-- <li class="sideBox sideBox4">
 								<div class="sendBox sendBox2">
 									<p class="sendTit">
 										<strong>예약챗봇</strong>
 									</p>
 									<textarea name="askText" placeholder="챗봇으로 간편하게 예약해보세요!"></textarea>
 								</div>
-							</li>
+							</li> -->
 						</ul>
 						<c:url var="bupView" value="bupdateView.do">
 							<c:param name="pro_no" value="${ Bang.pro_no }"/>
@@ -687,8 +689,10 @@
 							
 							<a href="${ bdel }" class="btnModify"><span>매물 삭제</span></a>
 							</c:if>
-							
-							</c:if>
+						</c:if>
+						<c:if test="${ Bang.pro_del eq 'Y' }">
+							<a  class="btnDelNoti" ><span>삭제된 게시글입니다.</span></a>
+						</c:if>
 						</c:if>
 						<c:if test="${ userType eq 'admin' }">
 							<c:url var="adminpage" value="adminblist.do">
@@ -710,6 +714,21 @@
 								<c:param name="userType" value="writer"/>
 							</c:url>
 							<a href="${ userPage }" class="btnModify"><span>목록으로</span></a>
+						</c:if>
+						<c:if test="${ userType eq 'bmaplist' }">
+							<c:url var="bmapPage" value="/">
+								<c:param name="id" value="${ Bang.id }"/>
+								<c:param name="userType" value="bmaplist"/>
+							</c:url>
+							<a href="${ bmapPage }" class="btnModify"><span>목록으로</span></a>
+						</c:if>
+						
+						<c:if test="${ userType eq 'usermy' }">
+							<c:url var="uMyPage" value="userMyPage.do">
+								<c:param name="id" value="${ loginMember.id }"/>
+								<c:param name="userType" value="usermy"/>
+							</c:url>
+							<a href="${ uMyPage }" class="btnModify"><span>목록으로</span></a>
 						</c:if>
 					</div>
 				</div>

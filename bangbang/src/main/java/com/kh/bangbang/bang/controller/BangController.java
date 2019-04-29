@@ -413,8 +413,10 @@ public class BangController {
 		}//try closed
 		}
 		if ( userType.equals("admin")) {
+			model.addAttribute("pro_no", pro_no);
+			model.addAttribute("id", id);
 			model.addAttribute("userType", userType);
-			return "redirect:/adminblist.do";
+			return "redirect:/binfo.do";
 		} else {
 		model.addAttribute("pro_no", pro_no);
 		model.addAttribute("id", id);

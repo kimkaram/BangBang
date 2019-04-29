@@ -199,7 +199,7 @@ public class SchedulerController {
 	public @ResponseBody BaseResponse deleteScheduler(HttpServletRequest request, HttpServletResponse response
 			, @RequestBody SchedulerDeleteRequest reqDto) throws IOException, SQLException {
 		
-		//throw new SQLException();
+		
 		return schedulerService.deleteScheduler(Integer.valueOf(reqDto.getBookNo()));
 //		return schedulerService.deleteScheduler(Integer.valueOf(reqDto.getBookNo()));
 	}
