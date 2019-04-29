@@ -524,7 +524,7 @@
 			 f.outerHTML = f.outerHTML; //파일 입력폼초기화
 			 document.getElementById('imgbox').innerHTML = '';
 		 } else {
-			 if( file[0].size < 1024*1024 ){
+			 if( file[0].size < 1024*1024*10 ){
 				 alert(file[0].size);
 			 if (f.files && f.files[0]) {
 				 var reader = new FileReader();
@@ -550,7 +550,7 @@
 			 f.outerHTML = f.outerHTML; //파일 입력폼초기화
 			 document.getElementById('imgbox').innerHTML = '';
 		 } else {
-			 if( file[0].size < 1024*1024 ){
+			 if( file[0].size < 1024*1024*10 ){
 				 alert(file[0].size);
 			 if (f.files && f.files[0]) {
 				 var reader = new FileReader();
