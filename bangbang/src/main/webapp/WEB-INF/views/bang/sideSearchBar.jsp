@@ -186,12 +186,6 @@
 				</dl>
 					<br><br>
 					<input class="btnSearch11" type="submit" value="조회">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-					<c:url var="bwrite" value="bwrite.do">
-					</c:url>
-					<c:if test="${ !empty sessionScope.loginMember}">
-					<a href="${ bwrite }" class="btnWrite" style=""><span>매물등록</span></a>
-					
-					</c:if>
 			</div>
 				</form>
 		</div>

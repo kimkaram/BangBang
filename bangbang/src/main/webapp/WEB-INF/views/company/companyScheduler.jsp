@@ -134,7 +134,7 @@
 	    	            					 "</p><p class='add4'>예약 ID : " + strid +
 	    	            					 "</p><button class='close'>확인</button><div class='del'></div></div>");
 	    	            	
-	    	            	if(strid == userid){
+	    	            	if(strid == id){
 	    	            		$(".del").html("<button class='delete' value=" + event.id + ">삭제</button>");
 	    	            	}
 	    	            	

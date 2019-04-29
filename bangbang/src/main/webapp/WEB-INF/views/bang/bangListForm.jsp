@@ -21,7 +21,7 @@
 		</c:url>
 		<c:set var="today" value="<%= new java.util.Date() %>" />
 		<li class="prodLit curPoint" id="bangLi">
-			<a href="${ binfo }">
+			<a href="${ binfo }" target="_blank">
 		<%-- <a href="binfo.do?pro_no=${ Bang.pro_no }&id=${ Bang.id }"> --%>
 			<div class="prodI_Box">
 			<c:forEach items="${ bimg }" var="Bimg">

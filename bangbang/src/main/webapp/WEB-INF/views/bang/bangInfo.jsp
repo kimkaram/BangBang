@@ -24,8 +24,6 @@
 		<div class="prodViewArea contentsArea">
 			<div id="bang-productInfo">
 				<div class="prodTitBox">
-					<strong> ${ schedulerCheck }<br>
-					</strong>
 				</div>
 				<div class="viewConWrap">
 					<div class="contentBox imgSliderBox">
@@ -570,9 +568,9 @@
 					                              </c:if>
 					                             </c:if>
 					                              </c:if>
+					                              </c:if>
 										</c:if>
 		                              </c:if>
-								</c:if>
 								</div>
 							</li>
 							<li class="sideBox sideBox2">
@@ -682,42 +680,7 @@
 							<a  class="btnDelNoti" ><span>삭제된 게시글입니다.</span></a>
 						</c:if>
 						</c:if>
-						<c:if test="${ userType eq 'admin' }">
-							<c:url var="adminpage" value="adminblist.do">
-								<c:param name="id" value="${ loginMemer.id }"/>
-								<c:param name="userType" value="admin"/>
-							</c:url>
-							<a href="${ adminpage } " class="btnModify"><span>목록으로</span></a>
-						</c:if>
-						<c:if test="${ userType eq 'all' }">
-							<c:url var="blist" value="blist.do">
-								<c:param name="id" value="${loginMemer.id }"/>
-								<c:param name="userType" value="all"/>
-							</c:url>
-							<a href="${blist}" class="btnModify"><span>목록으로</span></a>
-						</c:if>
-						<c:if test="${ userType eq 'writer' }">
-							<c:url var="userPage" value="userBangPage.do">
-								<c:param name="id" value="${ Bang.id }"/>
-								<c:param name="userType" value="writer"/>
-							</c:url>
-							<a href="${ userPage }" class="btnModify"><span>목록으로</span></a>
-						</c:if>
-						<c:if test="${ userType eq 'bmaplist' }">
-							<c:url var="bmapPage" value="/">
-								<c:param name="id" value="${ Bang.id }"/>
-								<c:param name="userType" value="bmaplist"/>
-							</c:url>
-							<a href="${ bmapPage }" class="btnModify"><span>목록으로</span></a>
-						</c:if>
 						
-						<c:if test="${ userType eq 'usermy' }">
-							<c:url var="uMyPage" value="userMyPage.do">
-								<c:param name="id" value="${ loginMember.id }"/>
-								<c:param name="userType" value="usermy"/>
-							</c:url>
-							<a href="${ uMyPage }" class="btnModify"><span>목록으로</span></a>
-						</c:if>
 					</div>
 				</div>
 			</div>

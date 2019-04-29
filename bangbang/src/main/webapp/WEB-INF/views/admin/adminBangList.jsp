@@ -91,7 +91,7 @@
 							<p>${ Bang.con_type }</p>
 						</td>
 						<td class="tModify">
-							<a href="${ binfo  }">보기</a>
+							<a href="${ binfo  }" target="_blank">보기</a>
 						</td>
 						<td>
 							<p>${ Bang.pro_del }</p>

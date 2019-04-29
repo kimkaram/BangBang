@@ -98,8 +98,13 @@
 		            eventClick: function(event){
 		            	var strid = event.title.substr(event.title.lastIndexOf(" ") + 1, event.title.length);
 		            	var strno = event.title.substr(event.title.indexOf(":") + 2, event.title.lastIndexOf("\n") - 5);
-		            	var strdate = event.start._i.substr(0, event.start._i.indexOf(" "));
-		            	var strtime = event.start._i.substr(event.start._i.indexOf(" ") + 1, 5);
+		            	var strdate = event.start._i.substr(0, event.start._i.indexOf("\n"));
+		            	var strtime = event.start._i.substr(event.start._i.indexOf("\n") + 1, 5);
+		            	console.log(event);
+		            	console.log(strid);
+		                  console.log(strno);
+		                  console.log(strdate);
+		                  console.log(strtime);
 		            	
 	 	            	$.ajax({
 		            		url: "selectInfo.do",
@@ -120,7 +125,7 @@
 		    	            					 "</p><p class='add7'>연락처 : " + json.phone + 
 		    	            					 "</p><button class='close'>확인</button><div class='del'></div></div>");
 		    	            	
-		    	            	if(strid == userid){
+		    	            	if(strid == id){
 		    	            		$(".del").html("<button class='delete' value=" + event.id + ">삭제</button>");
 		    	            	}
 		    	            	

@@ -86,7 +86,7 @@
 								<p>${ Bang.con_type }</p>
 							</td>
 							<c:if test="${ Bang.pro_del eq 'N' && Bang.contract_yn eq 'N'}">
-								<td class="tModify"><a href="${ binfo  }">보기</a></td>
+								<td class="tModify"><a href="${ binfo  }" target="_blank">보기</a></td>
 							</c:if>
 							<c:if test="${ Bang.pro_del eq 'Y' || Bang.contract_yn eq 'Y'}">
 								<td class="tModify"></td>

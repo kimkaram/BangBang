@@ -117,6 +117,11 @@
 	            	var strdate = event.start._i.substr(0, event.start._i.indexOf(" "));
 	            	var strtime = event.start._i.substr(event.start._i.indexOf(" ") + 1, 5);
 	            	
+	            	console.log(strid);
+	                  console.log(strno);
+	                  console.log(strdate);
+	                  console.log(strtime);
+	            	
  	            	$.ajax({
 	            		url: "selectInfo.do",
 	            		type: 'post',
@@ -133,7 +138,7 @@
 	    	            					 "</p><p class='add4'>예약 ID : " + strid +
 	    	            					 "</p><button class='close'>확인</button><div class='del'></div></div>");
 	    	            	
-	    	            	if(strid == userid){
+	    	            	if(strid == id){
 	    	            		$(".del").html("<button class='delete' value=" + event.id + ">삭제</button>");
 	    	            	}
 	    	            	

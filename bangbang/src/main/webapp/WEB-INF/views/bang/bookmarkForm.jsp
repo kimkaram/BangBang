@@ -27,7 +27,7 @@
 		</c:url>
 		
 		<li class="prodLit curPoint" id="bangLi">
-			<a href="${ binfo }">
+			<a href="${ binfo }" target="_blank">
 			<div class="prodI_Box">
 				<c:forEach items="${ bimg }" var="Bimg">
 			<c:if test="${ Bang.pro_no eq Bimg.pro_no }">
