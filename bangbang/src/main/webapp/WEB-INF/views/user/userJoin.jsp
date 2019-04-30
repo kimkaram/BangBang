@@ -6,10 +6,6 @@
 	<head>
 		<meta charset="UTF-8">
 		<c:import url="../common/header.jsp"/>
-	</head>
-	
-	<body>
-		<c:import url="../common/top.jsp"/>
 		<script type="text/javascript">
 			
 			function userJoinCheck(){
@@ -109,72 +105,44 @@
 				return false;  
 			}
 		</script>
-		
-		<div id="member-info">
-			<div class="prodLitArea myInfoArea">
-	            <form name="User" id="User" method="post" enctype="utf-8" action="userInsert.do">
-				<div class="myInfoWrap">
-					<div class="myInfoTitBox">
-						<strong>회원가입</strong>
-					</div>
-					
-					<div class="myContent">
-						<h2 class="myInfoTit"><span>회원가입</span></h2>
-	
-						<div class="myInfoTop">
-							<span>개인 회원가입</span>
-							<div class="clr"></div>
-						</div>
-	
-						<div class="myInfoCon">
-							<table>
-								<tr>
-									<th>아이디</th>
-									<td>
-										<input type="text" name="user_id" id="user_id" style="width:285px;" required /> 
-										<span>&nbsp;&nbsp;<button onclick="return checkId();">아이디 확인</button></span>
-									</td>
-								</tr>
-								<tr>
-									<th>비밀번호 입력</th>
-									<td class="user_pwd">
-										<p><input type="password" name="user_pwd" id="user_pwd" placeholder="비밀번호를 입력하세요" class="pwCh1" style="width:285px;" required /></p>
-									</td>
-								</tr>
-								<tr>
-									<th>비밀번호 확인</th>
-									<td class="user_pwd">
-										<p><input type="password" name="user_pwd_check" id="user_pwd_check" placeholder="비밀번호를 한번 더 입력하세요" class="pwCh1" style="width:285px;" required /></p>
-									</td>
-								</tr>
-								<tr>
-									<th>이름</th>
-									<td>
-										<input type="text" name="user_name" id="user_name" style="width:285px;" required />
-									</td>
-								</tr>
-								<tr>
-									<th>휴대폰 번호</th>
-									<td>
-										<input type="text" name="user_phone" id="user_phone" style="width:285px;" required />
-									</td>
-								</tr>
-								<tr>
-									<th>이메일 주소</th>
-									<td>
-										<input type="email" name="user_email" id="user_email" value="123@gmail.com" style="width:285px;" required />
-									</td>
-								</tr>
-							</table>
-						</div>
-					</div>
-	
-					<div class="btnCtrl">
-						<button onclick="return userJoinCheck();" type="submit" class="btnSave" style="vertical-align: top;">가입하기</button>
-						<a href="main.do" class="btnCancel" style="vertical-align: top;" ><span>취소</span></a>
-					</div>
+	</head>
+	<body class="is-preload">
+		<div id="" class="joinPopup">
+			<div class="memberBox memJoinBox">
+				<h2 class="memTit joinTit">개인 회원가입</h2>
+				<div class="join_form">
+					<form name="User" id="User" method="post" enctype="utf-8" action="userInsert.do">
+					<ul>
+						<li>
+							<label for="join-name">아이디</label>
+							<input type="text" name="user_id" id="user_id" style="width:265px; trans-300" required /> 
+							<input type="button" onclick="return checkId();" style="width:108.23px; float:right;" value="아이디 확인">
+						</li>
+						<li>
+							<label for="join-pw">비밀번호</label>
+							<input type="password" name="user_pwd" id="user_pwd" placeholder="비밀번호를 입력하세요" class="trans-300" style="width:380px;" required />
+						</li>
+						<li>
+							<label for="join-pwChk">비밀번호확인</label>
+							<input type="password" name="user_pwd_check" id="user_pwd_check" placeholder="비밀번호를 한번 더 입력하세요" class="trans-300" style="width:380px;" required />
+						</li>
+						<li>
+							<label>이름</label>
+							<input type="text" name="user_name" id="user_name" style="width:380px;" required />
+						</li>
+						<li>
+							<label>휴대폰 번호</label>
+							<input type="text" name="user_phone" id="user_phone" style="width:380px;" required />
+						</li>
+						<li>
+							<label>이메일 주소</label>
+							<input type="email" name="user_email" id="user_email" value="123@gmail.com" style="width:380px;" required />
+						</li>
+					</ul>
+						<input onclick="return userJoinCheck();" type="submit" class="btnJoin trans-300" style="width:130px;" value="개인 회원가입">
+						<a href="main.do" class="btnReturn11 trans-300" style="width:130px;" ><span>취소</span></a>
+					</form>
 				</div>
-			    </form>
 			</div>
 		</div>
 </body>

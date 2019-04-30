@@ -124,7 +124,7 @@
 							<label for="join-name">아이디</label>
 							<input type="text" name="com_id" id="user_id" style="width:265px; trans-300" required />
 							<input type="button" onclick="return checkId();" style="width:108.23px; float:right;" value="아이디 확인">
-
+						</li>
 						<li>
 							<label for="join-pw">비밀번호</label>
 							<input type="password" name="com_pwd" id="user_pwd" class="trans-300" style="width:380px;" required />
@@ -167,7 +167,8 @@
 							<input type="email" name="com_email" value="123@gmail.com" style="width:380px;" required />
 						</li>
 					</ul>
-					<input onclick="return userJoinCheck();" type="submit" class="btnJoin trans-300" value="업체 회원가입">
+						<input onclick="return userJoinCheck();" type="submit" class="btnJoin trans-300" style="width:130px;" value="업체 회원가입">
+						<a href="main.do" class="btnReturn11 trans-300" style="width:130px;" ><span>취소</span></a>
 					</form>
 				</div>
 			</div>

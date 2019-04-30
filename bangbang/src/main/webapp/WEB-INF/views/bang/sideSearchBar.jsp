@@ -185,7 +185,7 @@
 					</dd>
 				</dl>
 					<br><br>
-					<input class="btnSearch11" type="submit" value="조회">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+					<input class="btnSearch11" type="submit" value="조회">
 			</div>
 				</form>
 		</div>

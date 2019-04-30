@@ -3296,3 +3296,25 @@ div.prodViewArea .viewSideNav .btnDelNoti{
 /**-- 매물관리 --**/
 .adminUserBangTable tr.bangDel{background:#ffe3e1;}
 .adminUserBangTable tr.conDone{background:#def0ff;}
+
+
+
+
+/** 회원가입버튼 **/
+.btnReturn11 {
+	width: 150px;
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    font-size: 15px;
+    color: #fff;
+    font-weight: bold;
+    background: #59748c;
+    box-sizing: border-box;
+    border: 1px solid #364b5e;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin-top: 30px;
+    vertical-align:top;
+}
